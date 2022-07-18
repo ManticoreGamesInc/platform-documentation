@@ -39,9 +39,9 @@ Create a copy of the **Volleyball** object that will be a clone. Any changes mad
 
 1. In **Core Content** search for `Volleyball` to find the object **Ball - Volleyball 01**.
 2. Add the volleyball to the **Hierarchy** and name it `Volleyball Clone`.
-3. Right-click on the volleyball object in the **Hierarchy** and select **Enable Networking**.
-4. With the **Volleyball** selected, in the **Properties** window enable the **Advanced Settings** option.
-5. In the **Properties** window for the **Volleyball** object, disable the option **Start Replicating** under the **Network Relevance** group.
+3. Right-click on the **Volleyball Clone** object in the **Hierarchy** and select **Enable Networking**.
+4. With the **Volleyball Clone** selected, in the **Properties** window enable the **Advanced Settings** option.
+5. In the **Properties** window for the **Volleyball Clone** object, disable the option **Start Replicating** under the **Network Relevance** group.
 
 With the option **Start Replicating** disabled, the object will only use network bandwidth when it is created, and when replication is forced by using a Lua function.
 

@@ -154,19 +154,19 @@ See also: [Blockchain.GetTokensForPlayer](blockchain.md) | [BlockchainTokenColle
 
 Example using:
 
-### `contractAddress)`
+### `contractAddress`
 
-### `creatorAddress)`
+### `creatorAddress`
 
-### `description)`
+### `description`
 
-### `name)`
+### `name`
 
-### `ownerAddress)`
+### `ownerAddress`
 
-### `rawMetadata)`
+### `rawMetadata`
 
-### `tokenId)`
+### `tokenId`
 
 MekaVerse is an NFT collection with 8,888 unique mechas. This example shows how to fetch all token data for Meka #1. Token properties are output to the Event Log.
 
