@@ -13,7 +13,7 @@ tags:
 Core projects are saved locally on your computer, and therefore if you
 want to move them between computers, or share the project file with someone else, you will need a way to upload them.
 
-Core project files are actually quite small, so it is possible to just upload them to any cloud server. What using **GitHub** will allow you to do is synchronize changes to an online version, and keep a history of the changes. You can go back to an older version, back up your project, and collaborate with others on the same project.
+Core project files are quite small, so it is possible to just upload them to any cloud server. What using **GitHub** will allow you to do is synchronize changes to an online version, and keep a history of the changes. You can go back to an older version, back up your project, and collaborate with others on the same project.
 
 ## The Core Project File
 
@@ -38,7 +38,7 @@ There are two ways to find your project folder: the normal way you would find an
 
 ## GitHub Desktop
 
-GitHub Desktop is a program that allows you to easily using Git and GitHub for saving changes to a project. It is not the only way to do so, but the most straight-forward to start out with.
+GitHub Desktop is a program that allows you to easily use Git and GitHub for saving changes to a project. It is not the only way to do so, but the most straightforward to start with.
 
 ### Install GitHub Desktop
 
@@ -48,9 +48,9 @@ You can install GitHub Desktop using [the link to download on their website](htt
 
 ### Create a GitHub Account
 
-Once GitHub Desktop has installed, it will prompt you to create an account. This redirects to the GitHub web page again, and then will log you on to GitHub desktop.
+Once GitHub Desktop has been installed, it will prompt you to create an account. This redirects to the GitHub web page again and then will log you on to GitHub Desktop.
 
-Once you have entered your GitHub credentials, you will also be asked to give a name and e-mail. The login is to check if you are the person who gets to change the file, and this second name and e-mail step is just to display who made the changes, and can be your name or something generic.
+Once you have entered your GitHub credentials, you will also be asked to give a name and e-mail. The login is to check if you are the person who gets to change the file, and this second name and e-mail step are just to display who made the changes and can be your name or something generic.
 
 You can log in to a GitHub account, and change the name by clicking **File** and selecting **Options**.
 
@@ -63,7 +63,7 @@ Projects saved using **Git** are called **repositories**.
 Click **File** and select **Add local repository...**.
 
 !!! note
-    The "New repository..." option will not work for an existing project. Although the Menu option looks identical to the menu that you are redirected to you, the "New repository..." choice will actually create a folder inside of your project, and only keep track of things that are inside that folder.
+    The "New repository..." option will not work for an existing project. Although the Menu option looks identical to the menu that you are redirected to you, the "New repository..." choice will create a folder inside of your project, and only keep track of things that are inside that folder.
 
 1. In the **Local path** field, click **Choose** and navigate to your project folder.
 2. You will see a warning that says:
@@ -88,7 +88,7 @@ In the next step, we will talk about how to save (**commit**) your changes and u
 
 The Core Editor does not need every file in the folder to open a project. Some are generated when the project opens, so you can save time and space by not uploading those files. This is what a **.gitignore** file does.
 
-It is literally just a list of file and folder names that Git does not need to keep track of.
+It is just a list of file and folder names that Git does not need to keep track of.
 
 1. In the top toolbar, select **Repository** and then **Repository settings...**.
 
@@ -116,10 +116,11 @@ It is literally just a list of file and folder names that Git does not need to k
 
 ### Set the correct Attributes
 
-The Core Editor saves `.pbt` files with Linux line endings (LF) by default, to prevent git from changing the line endings to Windows (CRLF) and therefore give you a bunch of changes that you did not make each time, we are going to add a **.gitattributes** file to force the correct behavior.
+The Core Editor saves `.pbt` files with Linux line endings (LF) by default, to prevent git from changing the line endings to Windows (CRLF) and therefore gives you a bunch of changes that you did not make each time. GitHub Desktop will create a **.gitattributes** file to force the correct behavior.
+
+If the project doesn't have a `.gitattributes` file, it can be created.
 
 1. Create a new file and call it `.gitattributes`.
-
 2. Copy and paste the text below into the file:
 
     ```sh
@@ -131,7 +132,7 @@ The Core Editor saves `.pbt` files with Linux line endings (LF) by default, to p
 
 ### Make a Commit
 
-Once your Core Project has been added to GitHub desktop, any time you save changes to the project, the changed files should show up in the **Changes** tab.
+Once your Core Project has been added to GitHub Desktop, any time you save changes to the project, the changed files should show up in the **Changes** tab.
 
 Below the changed files, find the **Summary** field. Here is where you write a quick description of the changes made in this **Commit**.
 
@@ -141,7 +142,7 @@ What you write here will be your reference for the most recent changes made, so 
 
 ## Uploading a Project
 
-With a local Git repository, you have a saved record of the different stages of a project. To back it up online, and to make it so that you can download the project onto different machines easily, you will need a **remote repository**, which will be another copy of the project files, and the record of the changes, hosted online.
+With a local Git repository, you have a saved record of the different stages of a project. To back it up online, and to make it so that you can download the project onto different machines easily, you will need a **remote repository**, which will be another copy of the project files, and the record of the changes hosted online.
 
 ### Create a Remote Repository
 
@@ -175,7 +176,7 @@ Click the **Add a README** button at the bottom of the project.
 
 ![Create README Button](../img/VersionControl/VersionControl_CreateReadme.png){: .center loading="lazy" }
 
-This will open a new file that contains the title and description you created for your project. This is written in the **Markdown** language, which allows you to format text in document. [Learn more about writing in Markdown here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+This will open a new file that contains the title and description you created for your project. This is written in the **Markdown** language, which allows you to format text in the document. [Learn more about writing in Markdown here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
 #### Commit the New README file
 
@@ -183,7 +184,7 @@ Once you have added more to the description of the project, add a commit message
 
 ## Pushing and Pulling Changes
 
-Currently, we have a three step work-flow to back up the project to GitHub:
+Currently, we have a three-step work-flow to back up the project to GitHub:
 
 1. **Save** changes to the project and scripts in Core.
 2. **Commit** a set of changes in GitHub Desktop.
@@ -193,7 +194,7 @@ However, if you added a new README, then currently there are changes on the remo
 
 ### Pull Changes from the Remote Repository
 
-**Origin** is how GitHub Desktop will refer to remote repository. To get those changes locally, click either of the **Pull origin** buttons that are displayed.
+**Origin** is how GitHub Desktop will refer to the remote repository. To get those changes locally, click either of the **Pull origin** buttons that are displayed.
 
 !!! warning "It is recommended that you close your current game before pulling, otherwise Core might not pick up all of the incoming changes!"
 
@@ -211,7 +212,7 @@ After committing your most recent changes, click the **Push origin** button to s
 
 ## Downloading a Project
 
-If you want to download the project onto a different computer, or allow someone else to download and work on it, you can do this by **cloning** it.
+If you want to download the project onto a different computer or allow someone else to download and work on it, you can do this by **cloning** it.
 
 ### Find or Fork a Remote Repository
 
@@ -223,7 +224,7 @@ If you are using a project created by someone else, and want to be able to push 
 
 ### Clone with GitHub Desktop
 
-When you click the **Clone** button on a GitHub repository, you will see the option to **Open in Desktop**. Click this to use GitHub desktop to clone.
+When you click the **Clone** button on a GitHub repository, you will see the option to **Open in Desktop**. Click this to use GitHub Desktop to clone.
 
 ![Clone with Desktop](../img/VersionControl/VersionControl_CloneDialogue.png){: .center loading="lazy" }
 
@@ -237,13 +238,13 @@ If your project has been cloned into the **Maps**, it will automatically appear 
 
 ## Using Git for Collaboration
 
-Git is also a tool for collaboration. It can allow you to work on the same project with someone else, and keep track of your individual changes.
+Git is also a tool for collaboration. It can allow you to work on the same project with someone else, and keep track of your changes.
 
 ### Organize Your Project
 
-The challenge with working on a project at the same time as someone else, is what should happen if you both change something. This creates a **merge conflict**, where it is unclear which set of changes should stay, and which should get tossed out.
+The challenge with working on a project at the same time as someone else is what should happen if you both change something. This creates a **merge conflict**, where it is unclear which set of changes should stay, and which should get tossed out.
 
-The easiest way to avoid this is work on separate parts of the project. **Folders** created in Core create actually folders in the files for your project. You can use them to separate objects so that you and your collaborators do not change the same parts of the project.
+The easiest way to avoid this is to work on separate parts of the project. **Folders** created in Core create actual folders in the files for your project. You can use them to separate objects so that you and your collaborators do not change the same parts of the project.
 
 ### Create a Branch
 
@@ -258,11 +259,11 @@ Now, if you commit, it will be saved on the new branch, but not the main branch.
 
 ### Create a Pull Request
 
-If you are collaborating with someone else, you should use a **pull request** when your changes are finished to integrate it into the main project. [You can learn how to create a pull request on GitHub](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+If you are collaborating with someone else, you should use a **pull request** when your changes are finished to integrate them into the main project. [You can learn how to create a pull request on GitHub](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
 ### Merge a Branch Locally
 
-If you are not collaborating, you can **merge** the changes on to your local main branch, and then push to GitHub.
+If you are not collaborating, you can **merge** the changes onto your local main branch, and then push them to GitHub.
 
 1. Change the current branch to **main**.
 2. Press ++ctrl+shift+M++ or click **Branch** in the top menu and select **Merge into current branch**.
@@ -274,7 +275,7 @@ Creating **templates** is an easy way to have multiple contributors to a project
 
 ### Dealing with Serialization Changes
 
-Every time Core gets updated, an internal number, called `SerializationVersion` gets increased to signal that the format of your save files are up to date with the current Core version. This can cause merge conflicts when not handled correctly. We suggest you have one dedicated person on the team who handles the serialization changes commit. When Core updates, that person loads up the project, saves it with the new version and pushes just that change as an isolated commit that everyone can then pull.
+Every time Core gets updated, an internal number, called `SerializationVersion` gets increased to signal that the format of your save files is up to date with the current Core version. This can cause merge conflicts when not handled correctly. We suggest you have one dedicated person on the team who handles the serialization changes committed. When Core updates, that person loads up the project, saves it with the new version, and pushes just that change as an isolated commit that everyone can then pull.
 
 ## Version Control Terminology
 
@@ -300,4 +301,4 @@ Every time Core gets updated, an internal number, called `SerializationVersion` 
 
 ## Learn More
 
-[Template Reference](templates.md) | [Complex Modeling](modeling_basics.md) | [Publishing](publishing.md)
+[Template Reference](../references/templates.md) | [Complex Modeling](../tutorials/modeling_basics.md) | [Publishing](../getting_started/publishing.md)
