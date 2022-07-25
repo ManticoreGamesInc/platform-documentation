@@ -36,7 +36,7 @@ Concurrent shared storage keys can be created from the options menu when clickin
 
 ## Delete Concurrent Shared Storage Key
 
-A concurrent shared storage key can be deleted from the **My Shared Keys** folder in the **Project Content** window, or the **Shared** Storage** window by selecting **Delete Key** from the options menu.
+A concurrent shared storage key can be deleted from the **My Shared Keys** folder in the **Project Content** window, or the **Shared Storage** window by selecting **Delete Key** from the options menu.
 
 ![!Delete Key](../img/ConcurrentStorage/delete_key.png){: .center loading="lazy" }
 
