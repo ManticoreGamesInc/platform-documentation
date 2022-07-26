@@ -14,7 +14,7 @@ The **Media Library** in Core allows creators to upload content to their account
 
 Content that can be uploaded such as images supports JPEG, JPG, and PNG, along with support for transparency.
 
-There is an account limit of 100 images or 104 MB, whichever is hit first. Individual images have a 5 MB limit.
+There is an account limit of 1,000 images or 104 MB, whichever is hit first. Individual images have a 5 MB limit.
 
 ## Opening the Media Library
 
@@ -58,7 +58,7 @@ Notice how the content in the image below is named according to what they are wh
 
 ## Deleting Content
 
-Deleting images from the Media Library can be done by right-clicking on the image and selecting **Delete**, or from the preview panel in the Media Library. Deleting an image will delete it from the Media Library, and brushes that have been created using that image in any of the creators projects will show up as white in the game as the image will no longer be valid.
+Deleting images from the Media Library can be done by right-clicking on the image and selecting **Delete**, or from the preview panel in the Media Library. Deleting an image will delete it from the Media Library, and brushes that have been created using that image in any of the creator's projects will show up as white in the game as the image will no longer be valid.
 
 ![!Delete Image](../img/MediaLibrary/delete.png){: .center loading="lazy" }
 
@@ -72,15 +72,15 @@ If a brush is not added to an existing UI Container, then one will be created au
 
 ### Retaining Aspect Ratio
 
-Creators may notice that brushes which get added to the **Hierarchy** do not maintain the original aspect ratio of the image. By enabling the option **Retain Aspect Ratio** in the Properties window of the UI Image, the aspect ratio will be retained regardless of its given dimensions.
+Creators may notice that brushes that get added to the **Hierarchy** do not maintain the original aspect ratio of the image. By enabling the option **Retain Aspect Ratio** in the Properties window of the UI Image, the aspect ratio will be retained regardless of its given dimensions.
 
-In the image below, the left UI Image does not have **Retain Aspect Ratio** enabled, whereas the right UI image does. This can still be scaled, but will retain the aspect ratio.
+In the image below, the left UI Image does not have **Retain Aspect Ratio** enabled, whereas the right UI image does. This can still be scaled but will retain the aspect ratio.
 
 ![!Ratio](../img/MediaLibrary/ratio.png){: .center loading="lazy" }
 
 ### Brush Picker
 
-The **Brush Picker** window will allow creators to find Core Base Brushes and their own brushes quickly when needing to swap out an existing brush. The Core Base Brushes can be filtered by selecting a type from the filter drop down.
+The **Brush Picker** window will allow creators to find Core Base Brushes and their brushes quickly when needing to swap out an existing brush. The Core Base Brushes can be filtered by selecting a type from the filter drop-down.
 
 ![!Brush Picker](../img/MediaLibrary/brush_picker.png){: .center loading="lazy" }
 
