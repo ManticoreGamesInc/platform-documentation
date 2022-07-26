@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-In this tutorial you will create two features using [**Concurrent Storage.**](concurrent_storage.md). You will create a player count tracker to display in the main lobby the number of players in a different scene. You will also create a way for players to place down a guidance message to help other players. Each guidance message will allow coins to be given the player who created it.
+In this tutorial you will create two features using [**Concurrent Storage**](concurrent_storage.md). You will create a player count tracker to display in the main lobby the number of players in a different scene. You will also create a way for players to place down a guidance message to help other players. Each guidance message will allow coins to be given the player who created it.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
