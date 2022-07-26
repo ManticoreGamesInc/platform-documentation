@@ -28,7 +28,7 @@ The focus of this tutorial will be the Media Library and creating brushes from i
 
 ## Download Image Pack
 
-For this tutorial, you will be creating a Shop UI for players to purchase items. You can use your own images, or if you want to follow along to recreate the shop UI, then you will need to download an image pack.
+For this tutorial, you will be creating a Shop UI for players to purchase items. You can use your images, or if you want to follow along to recreate the shop UI, then you will need to download an image pack.
 
 The pack below will require you to cut or slice the parts you want to use.
 
@@ -69,7 +69,7 @@ When clicking the **Create Image Asset** button, a new Brush will be created in 
 
 ## Creating the UI
 
-Now that you have the brushes created, you can start putting together the UI by dragging the brushes into the **Hierarchy**. If you are using your own images, then the placement and scale of your images will be different.
+Now that you have the brushes created, you can start putting together the UI by dragging the brushes into the **Hierarchy**. If you are using your images, then the placement and scale of your images will be different.
 
 ### Understanding Aspect Ratio
 
@@ -113,7 +113,7 @@ The ribbon will display at the top of the panel.
 The close image will display at the top right of the panel and would allow the player to close the UI.
 
 !!! info "Interactable UI"
-    The focus of this tutorial is not making the UI elements interactable (for example, a button to purchase an item). Brushes can not be used on UI components such as UI Buttons, but can be children of the button and a Lua script can be created to handle the button states (for example, hover and unhover) to change the image. For more information about [UI click here](../references/ui.md).
+    The focus of this tutorial is not making the UI elements interactable (for example, a button to purchase an item). Brushes can not be used on UI components such as UI Buttons but can be children of the button and a Lua script can be created to handle the button states (for example, hover and unhover) to change the image. For more information about [UI click here](../references/ui.md).
 
 1. Select the **Close** brush in **My Brushes** and add it to the **Hierarchy**.
 2. Rename the **UI Image** in the **Hierarchy** to `Close`.
