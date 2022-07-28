@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-In this tutorial you are going to explore more of the **Core** API to make a race timer for a multiplayer game from start to finish.
+In this tutorial, you are going to explore more of the **Core** API to make a race timer for a multiplayer game from start to finish.
 
 * **Completion Time:** ~3 hours
 * **Knowledge Level:** It's recommended to have completed the [Scripting Beginner](lua_basics_helloworld.md) and [Scripting Intermediate](lua_basics_lightbulb.md) tutorials.
@@ -47,7 +47,7 @@ When a race is about to start, you need to move the players to the starting line
 ### Create Lane Positions
 
 !!! tip "Visual Aid for Placing Spawn Points"
-    As a visual aid to help move the starting positions, an object such as a **Cube** can be used. For performance it's recommended to use a **Group** when needing to reference a position for spawning in objects. **Group** objects have minimal properties (that is no **Rendering**) compared to other objects.
+    As a visual aid to help move the starting positions, an object such as a **Cube** can be used. For performance, it's recommended to use a **Group** when needing to reference a position for spawning in objects. **Group** objects have minimal properties (that is no **Rendering**) compared to other objects.
 
 1. Create a new group called **Starting Positions** inside the **Race Timer Tutorial - Track** group.
 2. Drag and drop a **Cube** from **Core Content** into the **Starting Positions** group.
@@ -75,7 +75,7 @@ You need to set up the script folder and contexts in the **Hierarchy**.
 
 ### Server Authoritative Design
 
-A game server is a server which is the authoritative source of events in a game. The server sends data about the game state to allow players, which is used to maintain their own accurate version of the game world.
+A game server is a server that is the authoritative source of events in a game. The server sends data about the game state to allow players, which is used to maintain their accurate version of the game world.
 
 Anything in the **Client Context** exists on each player's version of the game. This means that there is no network traffic, and anything that gets modified is applied to that local player and not all players on the server.
 
@@ -111,7 +111,7 @@ shop_button.clickedEvent:Connect(function()
 end)
 ```
 
-The server script will then handle validating if the player can purchase the item, and if so it will initiate the purchase and possibly broadcast back to the client if it was successful or not.
+The server script will then handle validating if the player can purchase the item and if so it will initiate the purchase and possibly broadcast back to the client if it was successful or not.
 
 !!! tip "Default Context"
     There is another context called **Default Context**. Any script in this context is also viewable by the client. If you have code you want to protect from prying eyes, consider moving it to a **Server Context**.
@@ -120,22 +120,22 @@ For further information check out [Networking in Core](../references/networking/
 
 ## Create Race Manager Server Script
 
-The race manager server script is going to handle a few different things. You will be modifying this script a few times throughout the tutorial. In this section the following items will be covered.
+The race manager server script is going to handle a few different things. You will be modifying this script a few times throughout the tutorial. In this section, the following items will be covered.
 
 - Only start races when the server has players.
 - Move players to the starting positions.
 - Let the players know the race is about to begin and when to go.
 - Keep track of the race time for each player.
-- Stop the race when time has ran out before starting a new race.
+- Stop the race when time has run out before starting a new race.
 
-Create a new script called **RaceManager_Server** and place the script you created into the **Server Context** folder. Before opening the script, you need to setup the custom property for the positions so **Lua** has access to them.
+Create a new script called **RaceManager_Server** and place the script you created into the **Server Context** folder. Before opening the script, you need to set up the custom property for the positions so **Lua** has access to them.
 
 !!! tip "Script Naming Convention"
     It's good habit to suffix scripts with the type of context they will be placed in so it's easier to find in the **Project Content** panel. For example, a server script could be called **GameManager_Server**, and the client script could be called **GameManager_Client**. Using this method of naming helps identify the context a script is for.
 
     With the addition of **Project Content** folders organizing scripts, templates, and materials is recommended when creating bigger projects.
 
-You want each player to be moved to a random lane position. At the same time you need to mark each player in the race to keep track of who is and isn't currently racing because players can join the game while a race is in progress.
+You want each player to be moved to a random lane position. At the same time, you need to mark each player in the race to keep track of who is and isn't currently racing because players can join the game while a race is in progress.
 
 1. Click on **RaceManager_Server** so it becomes the active object selected.
 2. Drag and drop the group **Starting Positions** onto the **Add Custom Property** button.
@@ -148,7 +148,7 @@ Your **Hierarchy** and **RaceManager_Server** script will now look like the belo
 Open up the **RaceManager_Server** script by double clicking on it.
 
 !!! tip "Script Editor"
-    **Core** comes with a **Script Editor** built in that supports syntax highlighting, auto complete, and script debugging. You can change which editor is used in the **Settings** under the **Editor** section. Another popular editor is **Visual Studio Code** which has an extension for the **Core API**. See [Editor Extensions](/extensions.md) for more information.
+    **Core** comes with a **Script Editor** built in that supports syntax highlighting, auto-complete, and script debugging. You can change which editor is used in the **Settings** under the **Editor** section. Another popular editor is **Visual Studio Code** which has an extension for the **Core API**. See [Editor Extensions](/extensions.md) for more information.
 
 ```lua  linenums="1"
 local START_POSITIONS = script:GetCustomProperty("startingPositions"):WaitForObject()
@@ -198,10 +198,10 @@ local function MovePlayersToStart()
 end
 ```
 
-`MovePlayersToStart` will get called later by the race task. This function handles disabling the player movement, setting position and rotation by looping over all players that are currently in the game.
+`MovePlayersToStart` will get called later by the race task. This function handles disabling the player movement, setting position, and rotation by looping over all players that are currently in the game.
 
 !!! info "ipairs()"
-    The `ipairs()` function will iterate over index value pairs. These are key value pairs where the keys are indices in an array. The order that elements are returned is guaranteed to be in the order of the indices, and keys that are not an integer will be skipped over.
+    The `ipairs()` function will iterate over index value pairs. These are key-value pairs where the keys are indices in an array. The order that elements are returned is guaranteed to be in the order of the indices, and keys that are not an integer will be skipped over.
 
 ```lua linenums="1"
 local startPosition = START_POSITIONS:GetChildren()[math.random(#START_POSITIONS:GetChildren())]
@@ -231,7 +231,7 @@ local function EnablePlayers()
 end
 ```
 
-The `EnablePlayers` function is called later on by the race task. This function loops over all players that have `inRace` set to `true`. If the property is `true`, then the player have their movement enabled.
+The `EnablePlayers` function is called later on by the race task. This function loops over all players that have `inRace` set to `true`. If the property is `true`, then the player has their movement enabled.
 
 ```lua linenums="1"
 players[currentPlayer.id].startTime = time()
@@ -276,7 +276,7 @@ local function OnPlayerLeft(player)
 end
 ```
 
-When a player leaves the game, you need to cleanup the `players` table by removing the player from the `players` table. Setting the value to `nil` is a good way to tell **Lua** that you no longer need it.
+When a player leaves the game, you need to clean up the `players`` table by removing the player from the `players` table. Setting the value to `nil` is a good way to tell **Lua** that you no longer need it.
 
 ```lua linenums="1"
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
@@ -299,7 +299,7 @@ local function TellPlayersToGetReady()
 end
 ```
 
-The function `TellPlayersToGetReady` will broadcast to each player that is marked as in the race who is in the game currently. This is done so players who join late don't receive the notification. Later on in the tutorial you will listen for this broadcast event and setup a handler.
+The function `TellPlayersToGetReady` will broadcast to each player that is marked as in the race who is in the game currently. This is done so players who join late don't receive the notification. Later on, in the tutorial, you will listen to this broadcast event and set up a handler.
 
 ```lua linenums="1"
 local function TellPlayersToGo()
@@ -311,7 +311,7 @@ local function TellPlayersToGo()
 end
 ```
 
-The function `TellPlayersToGo` will broadcast to each player that is marked as in the race. Later on in the tutorial you will listen for this broadcast event and setup a handler.
+The function `TellPlayersToGo` will broadcast to each player that is marked as in the race. Later on, in the tutorial, you will listen to this broadcast event and set up a handler.
 
 ### Stop the Race
 
@@ -327,7 +327,7 @@ local function StopRace()
 end
 ```
 
-The function `StopRace` will loop through all the players on the server and set the property `inRace` to `false` indicating they are no longer in the race. You then broadcast to all players that the race will be stopped. Later on in the tutorial, you will listen for this broadcast event and create a handler.
+The function `StopRace` will loop through all the players on the server and set the property `inRace` to `false` indicating they are no longer in the race. You then broadcast to all players that the race will be stopped. Later on in the tutorial, you will listen to this broadcast event and create a handler.
 
 ### Repeating Task
 
@@ -358,18 +358,18 @@ local function task_handler()
     EnablePlayers()
 end
 
-task_handler()
+Task.Spawn(task_handler)
 ```
 
 You need a way to manage the state of the game, and a simple way to handle that for this example is using a task.
 
 #### Create Repeating Task
 
-You need to create a repeating task if one hasn't been setup. This task will repeat every 10 seconds and handle the state of the game. Because the length of the track doesn't take very long to finish for the player, you limit the duration of each race to 10 seconds.
+You need to create a repeating task if one hasn't been set up. This task will repeat every 10 seconds and handle the state of the game. Because the length of the track doesn't take very long to finish for the player, you limit the duration of each race to 10 seconds.
 
 You can delay the initial spawning of the task by 14 seconds to take into account the 4 seconds when `Task.Wait` is used. If you don't do this, then the first race on the server will be short.
 
-Using a repeating task has an added benefit of resetting the race if any players are inactive.
+Using a repeating task has the added benefit of resetting the race if any players are inactive.
 
 ```lua
 raceTask.repeatCount = -1
@@ -377,7 +377,7 @@ raceTask.repeatCount = -1
 
 You can set `repeatCount` to `-1` to force the task to repeat forever.
 
-#### Check if Players are in Game
+#### Check if Players are in the Game
 
 The task handler will check to see if there are any players in the game. If the number of players is `0`, then you exit the handler early by using `return`.
 
@@ -389,13 +389,13 @@ Because the race has a time limit based on the repeating task, you need to make 
 
 After a 2 second wait by using `Task.Wait`, you then move all players to the starting positions by calling `MovePlayersToStart`. This function also handles disabling the player movement.
 
-#### Notify Players to get Ready
+#### Notify Players to Get Ready
 
 Calling **TellPlayersToGetReady** will broadcast to any player who is in the race letting them know to get ready.
 
 #### Enable Player Movement
 
-You can wait another 2 seconds by using `Task.Wait` and notify the players to go so they know when to start running. At the same time you enable all players by calling `EnablePlayers`.
+You can wait another 2 seconds by using `Task.Wait` and notify the players to go so they know when to start running. At the same time, you enable all players by calling `EnablePlayers`.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -405,11 +405,11 @@ You can wait another 2 seconds by using `Task.Wait` and notify the players to go
 
 ### Enter Play Mode and Test
 
-Enter **Play** mode and test everything is working. If you have followed the tutorial so far, then this is what happens:
+Enter **Play** mode and test that everything is working. If you have followed the tutorial so far, then this is what happens:
 
 1. The Player spawns in at the **Spawn Point**.
-2. After a few seconds the player's movement is disabled and moved to a random starting position.
-3. After another few seconds the player can now move.
+2. After a few seconds, the player's movement is disabled and moved to a random starting position.
+3. After another few seconds, the player can now move.
 4. Every 10 seconds the task will reset the player back to a random starting position.
 
 ### The Full RaceManager_Server Script
@@ -586,7 +586,7 @@ Enter **Play** mode and test everything is working. If you have followed the tut
         EnablePlayers()
     end
 
-    task_handler()
+    Task.Spawn(task_handler)
     ```
 
 ## Create Finish Line Trigger
@@ -605,7 +605,7 @@ The **RaceManager_Server** script needs to have a way to reference the finish li
 
 #### Position Trigger
 
-The **Finish** trigger now needs to be placed at the finish line, making sure that it covers all the way across the track for the player to overlap with.
+The **Finish** trigger now needs to be placed at the finish line, making sure that it covers across the track for the player to overlap with.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -650,7 +650,7 @@ The trigger handler above will make sure that the `obj` is a valid `Player` obje
 players[obj.id].finishTime = time()
 ```
 
-You then set `finishTime` to the current time since the game started. This means that you now have a start and end time which you can use later to determine the best time of the player.
+You then set `finishTime` to the current time since the game started. This means that you now have a start and end time which you can use later to determine the best time for the player.
 
 ```lua linenums="1"
 players[obj.id].inRace = false
@@ -676,7 +676,7 @@ print(finalTime)
 Events.BroadcastToPlayer(obj, "RaceFinished", finalTime)
 ```
 
-You broadcast to the player that the race has finished, and also send their final time. Later on you will connect to this event from the client to update the time displayed in the UI with the time sent from the server.
+You broadcast to the player that the race has finished, and also send their final time. Later on, you will connect to this event from the client to update the time displayed in the UI with the time sent from the server.
 
 !!! tip "Client vs Server Trust"
     The client can#t be trusted to send their race time, so this is all tracked on the server and sent to the client when the player has finished the race. If the race time was tracked client side and then submitted to the server, this could be exploited by the client by modifying the data that is sent from client to server. Nearly anything the client does needs to ask for data (that is final race time), or get permission from the server.
@@ -691,7 +691,7 @@ You can now connect the `beginOverlapEvent` event up. Place this just before the
 
 #### Test the Game
 
-Enter **Play** mode and test everything is working. Crossing the finish line will print out the race time in the **Event Log**.
+Enter **Play** mode and test that everything is working. Crossing the finish line will print out the race time in the **Event Log**.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -897,7 +897,7 @@ Enter **Play** mode and test everything is working. Crossing the finish line wil
         EnablePlayers()
     end
 
-    task_handler()
+    Task.Spawn(task_handler)
     ```
 
 ## Create User Interface
@@ -935,7 +935,7 @@ The **Hierarchy** structure will now look like this:
 
 You are going to create some UI that will show the current race time to the player. All UI objects will be placed inside the **UI Container** from now on.
 
-!!! tip "It's good practice to name each UI object. As UI gets more complex with lots of object, it will be easier to find which object to change if they are correctly name for what their purpose is."
+!!! tip "It's good practice to name each UI object. As UI gets more complex with lots of objects, it will be easier to find which object to change if they are correctly named for what their purpose is."
 
 #### Create Frame Image
 
@@ -1007,7 +1007,7 @@ Create a new script called **RaceManager_Client** and place it into the Client C
 
 Double click on the **RaceManager_Client** script to open it in the script editor.
 
-#### Add Custom properties
+#### Add Custom Properties
 
 Add the following lines to the top of the script.
 
@@ -1050,13 +1050,13 @@ Next, add the `Tick` function. This is a special **Core** function that gets cal
 
 !!! warning "Attempting to reference the `text` property on other UI components will give a warning such as `attempt to index (set) nil value \"text\"`"
 
-The `Tick` function checks to see if `timerStarted` is set to true. This is to prevent the UI for the race timer getting constantly updated when it doesn't need to be.
+The `Tick` function checks to see if `timerStarted` is set to true. This is to prevent the UI for the race timer from getting constantly updated when it doesn't need to be.
 
 ```lua linenums="1"
 RACE_TIME.text = string.format("%.3f", timer)
 ```
 
-`string.format` is used to format strings. The first parameter is the format of the string that can contain specifiers. Because you want to show a floating point value with 3 decimal places, you can use `%.3f`. The second parameter is what will be used as the replacement. In this case you can pass the `timer` variable which contains the current race time. This will be constantly updated for the player.
+`string.format` is used to format strings. The first parameter is the format of the string that can contain specifiers. Because you want to show a floating point value with 3 decimal places, you can use `%.3f`. The second parameter is what will be used as the replacement. In this case, you can pass the `timer` variable which contains the current race time. This will be constantly updated for the player.
 
 See the [string.format](http://www.lua.org/manual/5.3/manual.html#pdf-string.format) reference for more information.
 
@@ -1064,7 +1064,7 @@ See the [string.format](http://www.lua.org/manual/5.3/manual.html#pdf-string.for
 timer = timer + dt
 ```
 
-The race time will appear like a stopwatch that is counting up. To do this, you add the previous time and the delta time from `Tick` to increment the timer. You do this on the client to give the player an idea of their current time. This time will not be the final time displayed to the player. The real time that is accurately being tracked on the server is sent to the player when they cross the finish line. The other advantage of doing it on the client is that it can refresh quickly and updates smoothly.
+The race time will appear like a stopwatch that is counting up. To do this, you add the previous time and the delta time from `Tick` to increment the timer. You do this on the client to give the player an idea of their current time. This time will not be the final time displayed to the player. The real-time that is accurately being tracked on the server is sent to the player when they cross the finish line. The other advantage of doing it on the client is that it can refresh quickly and updates smoothly.
 
 #### Add Get Ready Function
 
@@ -1116,18 +1116,11 @@ local function RaceFinished(finalTime)
 end
 ```
 
-Add the above code below the `StopRace` function. This gets called when the race has finished, and includes from the server the players final time. This time is formatted and the UI is updated with the accurate time. This is done because there can be a difference between the server and client times.
+Add the above code below the `StopRace` function. This gets called when the race has finished and includes from the server the player's final time. This time is formatted and the UI is updated with the accurate time. This is done because there can be a difference between the server and client times.
 
 #### Connect the Events
 
-```lua linenums="1"
-Events.Connect("GetReady", GetReady)
-Events.Connect("Go", Go)
-Events.Connect("StopRace", StopRace)
-Events.Connect("RaceFinished", RaceFinished)
-```
-
-Finally the functions are connected to the events which are called from the server. This is using the `Events` API that allows you to broadcast to the server and from the server to the client. In this case you only need to broadcast to the client.
+Finally, the functions are connected to the events which are called from the server. This is using the `Events` API that allows you to broadcast to the server and from the server to the client. In this case, you only need to broadcast to the client.
 
 #### Test the Game
 
@@ -1237,7 +1230,7 @@ Enter **Play** mode and test the game.
 
 ## Persistent Storage
 
-You will store the players fastest time so that it is displayed to them every time they join the game. You will update both race manager scripts. Here are the steps to saving the fastest time.
+You will store the player's fastest time so that it is displayed to them every time they join the game. You will update both race manager scripts. Here are the steps to saving the fastest time.
 
 - Enable player storage.
 - On the server.
@@ -1250,9 +1243,9 @@ You will store the players fastest time so that it is displayed to them every ti
 
 ### Enable Player Storage
 
-Player storage is a way to save data for players persistently so that it is available across sessions. For example, saving a players inventory so it is available to them next time they login to the game.
+Player storage is a way to save data for players persistently so that it is available across sessions. For example, saving a player's inventory so it is available to them next time they log in to the game.
 
-By default player storage is not enabled. This can be enabled very easily by finding the **Game Settings** object in the **Hierarchy** and making sure the setting **Enable Player Storage** is checked under **General**.
+By default, player storage is not enabled. This can be enabled very easily by finding the **Game Settings** object in the **Hierarchy** and making sure the setting **Enable Player Storage** is checked under **General**.
 
 ![!Enable Player Storage](../img/RaceTimerTutorial/enable_player_storage.png){: .center loading="lazy" }
 
@@ -1260,7 +1253,7 @@ By default player storage is not enabled. This can be enabled very easily by fin
 
 ### Send Data to Client
 
-When a player joins the game, you want to send their own data to them. Sending data to a client from the server can be done in a few different ways. Clients cannot access **Storage**, so you must retrieve the data on the server and send it to the client. A very good method that you will be using is **Private Networked Data**. This allows us to securely get the players data just to them.
+When a player joins the game, you want to send their data to them. Sending data to a client from the server can be done in a few different ways. Clients cannot access **Storage**, so you must retrieve the data on the server and send it to the client. A very good method that you will be using is **Private Networked Data**. This allows us to securely get the player's data just to them.
 
 ```lua linenums="1"
 local function SendPrivateData(player, key, data)
@@ -1287,15 +1280,15 @@ if data.bestTime ~= nil then
 end
 ```
 
-Add the above code to the bottom of the `OnPlayerJoined` function. This code will fetch the players data from storage, and also check to see if `bestTime` is not `nil`.
+Add the above code to the bottom of the `OnPlayerJoined` function. This code will fetch the player's data from storage, and also check to see if `bestTime` is not `nil`.
 
 ```lua linenums="1"
 SendPrivateData(player, "bestTime", data.bestTime)
 ```
 
-Using the `SendPrivateData` function you created previously, you send the player, a string for the key, and the best time of the player.
+Using the `SendPrivateData` function you created previously, you send the player, a string for the key, and the best time for the player.
 
-### Check for Best Time
+### Check for the Best Time
 
 When a player crosses the finish line, you need to check the time for the current race against the time stored for the player. If the time is lower, then you can send this to the player and also update storage.
 
@@ -1315,25 +1308,25 @@ end
 
 Add the above function to the **Race_Manager_Script** just below the `OnPlayerLeft` function.
 
-This function will receive the player, and the last time from the last race they finished.
+This function will receive the player and the last time from the last race they finished.
 
 ```lua linenums="1"
 local data = Storage.GetPlayerData(player) or {}
 ```
 
-The line above attempts to load the player's data from **Storage**. If there is no data stored, then `data` will default to an empty table, otherwise it will be `nil`.
+The line above attempts to load the player's data from **Storage**. If there is no data stored, then `data` will default to an empty table, otherwise, it will be `nil`.
 
 ```lua linenums="1"
 if((data.bestTime == nil or data.bestTime == 0) or lastTime < data.bestTime) then
 ```
 
-The line above checks if `bestTime` is `nil` or if the `bestTime` is equal to `0`. This is done because if this is the player's first race, then `bestTime` will be `nil`, so you have nothing to compare it too against the `lastTime` provided to the function as the second parameter.
+The line above checks if `bestTime` is `nil` or if the `bestTime` is equal to `0`. This is done because if this is the player's first race, then `bestTime` will be `nil`, so you have nothing to compare it to against the `lastTime` provided to the function as the second parameter.
 
 ```lua linenums="1"
 lastTime < data.bestTime
 ```
 
-The second part of the if condition checks if the `lastTime` for the race the player just finished is lower that the time stored in `bestTime`. Storage will only update based on 2 conditions:
+The second part of the if condition checks if the `lastTime` for the race the player just finished is lower than the time stored in `bestTime`. Storage will only update based on 2 conditions:
 
 1. No best time set for the player.
 2. The last race time is lower than the stored time for the player.
@@ -1350,7 +1343,7 @@ Storage.SetPlayerData(player, data)
 
 ### Save Best Time
 
-You need to make one more change so that when the player cross the finish line the time is checked to see if it's faster than their last time. To do this you are going to make a small change to the `OnFinishTriggerOverlap` function.
+You need to make one more change so that when the player crosses the finish line the time is checked to see if it's faster than their last time. To do this you are going to make a small change to the `OnFinishTriggerOverlap` function.
 
 ```lua linenums="1" hl_lines="8"
 local function OnFinishTriggerOverlap(trigger, obj)
@@ -1596,7 +1589,7 @@ Open the **RaceManager_Server** script and add line 8 to the `OnFinishTriggerOve
         EnablePlayers()
     end
 
-    task_handler()
+    Task.Spawn(task_handler)
     ```
 
 ## Update Race User Interface
@@ -1647,7 +1640,7 @@ Your UI **Hierarchy** will now look like this.
 
 ## Update Race Manager Client Script
 
-You need to add the 2 text objects created in the previous section for best time and last time as custom properties on the **RaceManager_Client** script.
+You need to add the 2 text objects created in the previous section for the best time and last time as custom properties on the **RaceManager_Client** script.
 
 1. Drag and drop the **Best Time** text object onto the script as a new custom property and rename the new custom property to `bestTime`.
 2. Drag and drop the **Last Time** text object onto the script as a new custom property and rename the new custom property to `lastTime`.
@@ -1727,7 +1720,7 @@ end
 localPlayer.privateNetworkedDataChangedEvent:Connect(OnPrivateDataChanged)
 ```
 
-The function `OnPrivateDataChanged` is the handler you use to connect to the `privateNetworkedDataChangedEvent` event. This event is called anytime the players private networked data has changed when set on the server. This is handy because you can respond to any data change easily.
+The function `OnPrivateDataChanged` is the handler you use to connect to the `privateNetworkedDataChangedEvent` event. This event is called anytime the player's private networked data has changed when set on the server. This is handy because you can respond to any data change easily.
 
 ```lua linenums="1"
 for i, key in ipairs(localPlayer:GetPrivateNetworkedDataKeys()) do
@@ -1735,10 +1728,10 @@ for i, key in ipairs(localPlayer:GetPrivateNetworkedDataKeys()) do
 end
 ```
 
-Finally there could be a time where the data from the server has already been replicated. This means that the `privateNetworkedDataChangedEvent` event may not fire due to not being connected in time, so the script won't know about any change that has already happened. To get around this issue you can loop over all the private networked keys and perform an update from the stored data.
+Finally, there could be a time when the data from the server has already been replicated. This means that the `privateNetworkedDataChangedEvent` event may not fire due to not being connected in time, so the script won't know about any change that has already happened. To get around this issue you can loop over all the private networked keys and perform an update from the stored data.
 
 !!! tip "Replication"
-    **Replicated** means that the data that is sent from the server is copied to the clients. In this case the data is being replicated just to the client that owns it due to using the private networked method. Other methods such as networked properties are replicated to all clients in the game. This can be bad if you want the data to be private, and also use unnecessary network bandwidth if other clients don't need the data.
+    **Replicated** means that the data that is sent from the server is copied to the clients. In this case, the data is being replicated just to the client that owns it due to using the private networked method. Other methods such as networked properties are replicated to all clients in the game. This can be bad if you want the data to be private, and also use unnecessary network bandwidth if other clients don't need the data.
 
 All new code above will be added to the end of the **RaceManager_Client** script.
 
@@ -1859,7 +1852,7 @@ All new code above will be added to the end of the **RaceManager_Client** script
     end
     ```
 
-Enter **Play** mode to test the game. You will notice when finishing the race the Best and Last time gets updated. Exit and enter **Play** mode again, this time you will see the time for **Best Time** is displayed.
+Enter **Play** mode to test the game. You will notice when finishing the race the Best and Last time get updated. Exit and enter **Play** mode again, this time you will see the time for **Best Time** is displayed.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -1874,11 +1867,11 @@ It can be fun for players to fight it out on the leaderboard for the fastest tim
 - Creating a leaderboard.
 - Submitting a time to the leaderboard.
 - Retrieving leaderboard data.
-- Display in world for players to view.
+- Display in the world for players to view.
 
 ### Create a Leaderboard
 
-Leaderboards allow you to store data for players that get automatically sorted. This is a good way to show players who has the fastest time. You want the leaderboard to have the fastest times at the top, so the lower the time the higher the entry on the leaderboard will be.
+Leaderboards allow you to store data for players that get automatically sorted. This is a good way to show players who have the fastest time. You want the leaderboard to have the fastest times at the top, so the lower the time the higher the entry on the leaderboard will be.
 
 1. From the **Window** menu, open the **Global Leaderboards** windows.
 2. Click the **Create New Leaderboard** button.
@@ -1893,9 +1886,9 @@ Leaderboards allow you to store data for players that get automatically sorted. 
     </video>
 </div>
 
-### Create in World Leaderboard
+### Create an in World Leaderboard
 
-You need to display the leaderboard in the world to players. A leaderboard can have quite a few components too it and how you design it's up to you.
+You need to display the leaderboard in the world to players. A leaderboard can have quite a few components to it and how you design it's up to you.
 
 In **Community Content** find **Race Timer Tutorial - Board** by **CoreAcademy** and import it.
 
@@ -1907,7 +1900,7 @@ Once imported drag and drop it into the **Hierarchy** and place the leaderboard 
 
 ### Create Leaderboard Server Script
 
-You now need to create the server script that will submit the players time to the leaderboard.
+You now need to create the server script that will submit the player's time to the leaderboard.
 
 1. Create a new script called **Race_Leaderboard_Server**.
 2. Place the new script inside the **Server Context** in the **Scripts** folder.
@@ -1948,7 +1941,7 @@ The function `HasLeaderboards` will return true if any leaderboard data is avail
 Leaderboards.SubmitPlayerScore(FASTEST_TIME_LB, player, finalTime)
 ```
 
-Submitting scores to the leaderboard requires the leaderboard reference, player, and the score. The `finalTime` contains the time it took for the player to complete the race, and this is submitted to the leaderboard. The leaderboard will only update the entry if it's a lower time then any of the other times.
+Submitting scores to the leaderboard requires the leaderboard reference, player, and score. The `finalTime` contains the time it took for the player to complete the race, and this is submitted to the leaderboard. The leaderboard will only update the entry if it's a lower time than any of the other times.
 
 ### The Full RaceLeaderboard_Server Script
 
@@ -2228,7 +2221,7 @@ Open the **RaceManager_Server** script and modify the **OnFinishTriggerOverlap**
         EnablePlayers()
     end
 
-    task_handler()
+    Task.Spawn(task_handler)
     ```
 
 ### Create Leaderboard Client Script
@@ -2310,13 +2303,13 @@ It's nice having a leaderboard update while players are in the game. Using a rep
 if Leaderboards.HasLeaderboards() then
 ```
 
-The function `HasLeaderboards` will return true if any leaderboard data is available, otherwise returns false if there is no leaderboard data or it's still being loaded. Eventually if there is data and it's loaded, then the in world leaderboard will get updated because of the repeating task.
+The function `HasLeaderboards` will return true if any leaderboard data is available, otherwise returns false if there is no leaderboard data or it's still being loaded. Eventually, if there is data and it's loaded, then the in world leaderboard will get updated because of the repeating task.
 
 ```lua linenums="1"
 local list = Leaderboards.GetLeaderboard(FASTEST_TIME_LB, LeaderboardType.GLOBAL)
 ```
 
-`GetLeaderboard` returns a table with a list of entries based on the leaderboard type. In this case you want the fastest times ever so pass `LeaderboardType.GLOBAL` as the second parameter.
+`GetLeaderboard` returns a table with a list of entries based on the leaderboard type. In this case, you want the fastest times ever so pass `LeaderboardType.GLOBAL` as the second parameter.
 
 ```lua linenums="1" hl_lines="11 12"
 local counter = 1
@@ -2337,9 +2330,9 @@ for k, v in pairs(list) do
 end
 ```
 
-The above code handles looping over the leaderboard list. The code fetches each entry from the `ENTRIES` children list by using a `counter` that is incremented on each iteration. If the counter is greater than 10, then the loop will be broke by using the `break` keyword.
+The above code handles looping over the leaderboard list. The code fetches each entry from the `ENTRIES` children list by using a `counter` that is incremented on each iteration. If the counter is greater than 10, then the loop will be broken by using the `break` keyword.
 
-Lines 10 and 11 update the name and time by using the [entry](../api/leaderboardentry/) from the leaderboard list.
+Lines 10 and 11 updates the name and time by using the [entry](../api/leaderboardentry/) from the leaderboard list.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -2405,7 +2398,7 @@ In the video the race is run a few times, and shows the initial entry added to t
 
 ## Add Time Splits
 
-In this section you are going to add time splits to the track that update in the UI as the player passes the split. This will allow the player to see at what point on the track they need to improve on. The track in this tutorial is short and straight, so there isn't much a player could do to improve on their time. With a more interesting track this could be a useful feature to have.
+In this section, you are going to add time splits to the track that update in the UI as the player passes the split. This will allow the player to see at what point on the track they need to improve. The track in this tutorial is short and straight, so there isn't much a player could do to improve on their time. With a more interesting track, this could be a useful feature to have.
 
 Creating a time split feature isn't as complicated as it would first seem.
 
@@ -2440,7 +2433,7 @@ The split needs 3 **UI Text** objects. Make sure to name them exactly as below, 
 
 #### Create Split Entry Template
 
-Right click on the **Split Entry** object and select **Create New Template From This**.
+Right-click on the **Split Entry** object and select **Create New Template From This**.
 
 ![!Split Entry](../img/RaceTimerTutorial/split_entry.png){: .center loading="lazy" }
 
@@ -2535,7 +2528,7 @@ Add the above function just below the function `GetTotalPreviousSplitTime`. This
 if playerSplits[index] == nil then
 ```
 
-Each split a player overlaps is added to their `splits` table. You can check if the current split index is `nil` to prevent players triggering previous splits again.
+Each split a player overlaps is added to their `splits` table. You can check if the current split index is `nil` to prevent players from triggering previous splits again.
 
 ```lua linenums="1"
 local totalPreviousSplitTime = GetTotalPreviousSplitTime(playerSplits)
@@ -2543,7 +2536,7 @@ local totalPreviousSplitTime = GetTotalPreviousSplitTime(playerSplits)
 playerSplits[index] = (time() - players[player.id].startTime) - totalPreviousSplitTime
 ```
 
-Using the function `GetTotalPreviousSplitTime`, you get back the total time of previous splits. This allows us to update the current split time by subtracting the total time of previous splits away from the time the race has currently took.
+Using the function `GetTotalPreviousSplitTime`, you get back the total time of previous splits. This allows us to update the current split time by subtracting the total time of previous splits away from the time the race has currently taken.
 
 ```lua linenums="1"
 Events.BroadcastToPlayer(player, "SetSplitTime", index, playerSplits[index], time() - players[player.id].startTime)
@@ -2557,7 +2550,7 @@ You then broadcast to the player so the client script can update the UI.
 | `SetSplitTime` | The broadcast event name that the client will listen for. |
 | `index` | The child index inside of **Splits** so you know which trigger the player has overlapped. |
 
-The last parameter sends the current time the race has took so that it gets updated on the client. Since you are broadcasting to the player with the split time, you can make use of this broadcast and send the race time so the client receives the most accurate version.
+The last parameter sends the current time the race has taken so that it gets updated on the client. Since you are broadcasting to the player with the split time, you can make use of this broadcast and send the race time so the client receives the most accurate version.
 
 ```lua linenums="1" hl_lines="5 11"
 local function OnFinishTriggerOverlap(trigger, obj)
@@ -2584,7 +2577,7 @@ You need to update the `OnFinishTriggerOverlap` function to reset the splits and
 
 - Open the **RaceManager_Server** script and add line 5 to the `OnFinishTriggerOverlap` function. You increment the index to a number that doesn't exist so that the split time for the finish line trigger is recorded and sent to the player.
 
-- Open the **RaceManager_Server** script and add line 11 to the `OnFinishTriggerOverlap` function. You need to reset the players `splits` table because they have finished the race.
+- Open the **RaceManager_Server** script and add line 11 to the `OnFinishTriggerOverlap` function. You need to reset the player's `splits` table because they have finished the race.
 
 ```lua linenums="1"
 local function OnSplitTriggerOverlap(index, trig, obj)
@@ -2619,7 +2612,7 @@ for index, split in ipairs(SPLIT_TRIGGERS:GetChildren()) do
 end
 ```
 
-Finally you need to setup the overlap events for all the split triggers. You do this by looping over all the children in the **Splits** group and setting up the `beginOverlapEvent` event. Each time a player overlaps a split trigger, it will call `OnSplitTriggerOverlap`.
+Finally, you need to set up the overlap events for all the split triggers. You do this by looping over all the children in the **Splits** group and setting up the `beginOverlapEvent` event. Each time a player overlaps a split trigger, it will call `OnSplitTriggerOverlap`.
 
 ### The Updated RaceManager_Server Script
 
@@ -2936,7 +2929,7 @@ Finally you need to setup the overlap events for all the split triggers. You do 
         EnablePlayers()
     end
 
-    task_handler()
+    Task.Spawn(task_handler)
     ```
 
 ### Update Race Manager Client Script
@@ -3043,7 +3036,7 @@ local function RaceFinished(finalTime)
 end
 ```
 
-You need to modify the `RaceFinished` function so that when the race is finished it clears the players active split and resets `currentSplit` back to `0` ready for the next race.
+You need to modify the `RaceFinished` function so that when the race is finished it clears the player's active split and resets `currentSplit` back to `0` ready for the next race.
 
 ```lua linenums="1"
 local function SetSplitTime(index, splitTime, raceTime)
@@ -3106,13 +3099,13 @@ end
 SPLITS_PANEL.parent.height = SPLITS_PANEL.parent.height + (#children * 42)
 ```
 
-Finally you need to handle dynamically adding the split entries to the UI. Add the above code to the bottom of the script.
+Finally, you need to handle dynamically adding the split entries to the UI. Add the above code to the bottom of the script.
 
 ```lua linenums="1"
 local children = SPLIT_TRIGGERS:GetChildren()
 ```
 
-You can store a reference to all the split triggers so you can loop through them. This way you know how many entries you need to add to the UI and what to set the text too.
+You can store a reference to all the split triggers so you can loop through them. This way you know how many entries you need to add to the UI and what to set the text to.
 
 ```lua linenums="1"
 children[#children + 1] = FINISH_TRIGGER
@@ -3136,7 +3129,7 @@ The above code creates a new instance of the `SPLIT_ENTRY` template and sets the
 entry:FindChildByName("Split Name").text = t.name
 ```
 
-Because you loop through all the split triggers, you can grab the name of the trigger and set it in the UI. In the above code it replies on finding a child with the name `Split Name`.
+Because you loop through all the split triggers, you can grab the name of the trigger and set it in the UI. In the above code, it relies on finding a child with the name `Split Name`.
 
 ```lua linenums="1"
 entry.y = offsetY
@@ -3155,13 +3148,13 @@ splits[i] = {
 }
 ```
 
-The above code adds the new split entry to the `splits` table. This is done so the text for the split entry can be updated and the color to be changed so it stands out for the player which split they are on.
+The above code adds the new split entry to the `splits` table. This is done so the text for the split entry can be updated and the color to be changed so it stands out for the player on which split they are on.
 
 ```lua linenums="1"
 SPLITS_PANEL.parent.height = SPLITS_PANEL.parent.height + (#children * 42)
 ```
 
-Finally you need to update the height of the **Splits** panel. This is easily done by grabbing the existing height of the panel and adding the total number of children (triggers) times the height. The height of `42` includes the spacing between each entry.
+Finally, you need to update the height of the **Splits** panel. This is easily done by grabbing the existing height of the panel and adding the total number of children (triggers) times the height. The height of `42` includes the spacing between each entry.
 
 Enter **Play** mode and test the splits. When running the race the color of the next split will change to indicate to the player which one they are on. The split times will persist for each race so the player can see the split from the previous race.
 
@@ -3394,11 +3387,11 @@ Enter **Play** mode and test the splits. When running the race the color of the 
 
 ## Polishing
 
-In this section you are going to add a little polish to project by adding a sprint feature, audio, and some effects.
+In this section, you are going to add a little polish to the project by adding a sprint feature, audio, and some effects.
 
 ### Add Player Sprint
 
-Currently it's very slow running a race, so let's allow the players to sprint when holding the ++shift++ key down.
+Currently, it's very slow running a race, so let's allow the players to sprint when holding the ++shift++ key down.
 
 ### Create a new Binding
 
@@ -3778,7 +3771,7 @@ Input.actionReleasedEvent:Connect(OnActionReleased)
         EnablePlayers()
     end
 
-    task_handler()
+    Task.Spawn(task_handler)
 
     Input.actionPressedEvent:Connect(OnActionPressed)
     Input.actionReleasedEvent:Connect(OnActionReleased)
@@ -3788,7 +3781,7 @@ Enter **Play** mode and hold down ++shift++ to sprint. You will now be able to s
 
 ### Add Audio
 
-In this section you are going to add some audio to the starting race and finish line.
+In this section, you are going to add some audio to the starting race and finish line.
 
 1. Create a new **Client Context** and rename it to `Audio`.
 2. Find audio that will be played when the player is notified to **Get Ready**. Drop it into the **Audio** folder.
@@ -4108,7 +4101,7 @@ Enable the sound on the video above to hear sound effects.
 
 ### Add Effects
 
-Finally let's add a simple effect that plays when the player finishes the race.
+Finally, let's add a simple effect that plays when the player finishes the race.
 
 1. Create a **Client Context** folder and rename it to `Effects`.
 2. Find the **Confetti** effect in the **Core Content** panel and place it into the **Effects** folder.
@@ -4144,7 +4137,7 @@ local function RaceFinished(finalTime)
 end
 ```
 
-Add the lines on line 11 and 18 to play and stop the confetti. When the player crosses the finish line the confetti will be played. 2 seconds later it will stop ready for the next race.
+Add the lines on lines 11 and 18 to play and stop the confetti. When the player crosses the finish line the confetti will be played. 2 seconds later it will stop ready for the next race.
 
 Enter **Play** mode and cross the finish line to see the confetti effect.
 
@@ -4400,11 +4393,11 @@ The finished project for this tutorial is available to play and edit.
 
 ## Summary
 
-Timers are used in a wide range of games for many different things. Armed with the knowledge in this tutorial you can apply these new skills for creating accurate times to your own games.
+Timers are used in a wide range of games for many different things. Armed with the knowledge in this tutorial you can apply these new skills for creating accurate times for your games.
 
 Breaking down a feature to see what components may be needed is a good way to see that not everything is as complex as it first may seem.
 
-Try changing the race track, add a few turns, elevation changes so that it's more interesting to players.
+Try changing the race track, add a few turns, and elevation changes so that it's more interesting to players.
 
 Here are some ideas that you could consider implementing:
 
