@@ -18,6 +18,7 @@ A UIContainer is a type of UIControl. All other UI elements must be a descendant
 | `opacity` | `number` | Controls the opacity of the container's contents by multiplying the alpha component of descendants' colors. Note that other UIPanels and UIContainers in the hierarchy may also contribute their own opacity values. A resulting alpha value of 1 or greater is fully opaque, 0 is fully transparent. | Read-Write |
 | `cylinderArcAngle` | `number` | When the container is rendered in 3D space, this adjusts the curvature of the canvas in degrees. Changing this value will force a redraw. | Read-Write |
 | `useSafeArea` | `boolean` | When `true`, the size and position of the container is inset to avoid overlapping with a device's display elements, such as a mobile phone's notch. When `false`, the container is the same size and shape as the device's display regardless of a device's display features. This property has no effect on containers rendered in 3D space. | Read-Write |
+| `isScreenSpace` | `boolean` | When `true`, this container is rendered in screen space. When `false`, it is rendered in 3D world space. Defaults to `true`. | Read-Write |
 
 ## Functions
 
@@ -101,6 +102,45 @@ end)
 ```
 
 See also: [Events.Broadcast](events.md) | [CoreMath.Clamp](coremath.md)
+
+---
+
+Example using:
+
+### `isScreenSpace`
+
+In this example a UI container which has UI for screen space and world space can be toggled. This could be useful for world space UI that shows the ammo on the player's gun when aiming down sight. When releasing aim, the UI returns back to screen space.
+
+```lua
+-- Client script
+
+local UI_CONTAINER = script:GetCustomProperty("UIContainer"):WaitForObject()
+local SCREEN_SPACE_UI = script:GetCustomProperty("ScreenSpaceUI"):WaitForObject()
+local WORLD_SPACE_UI = script:GetCustomProperty("WorldSpaceUI"):WaitForObject()
+
+-- On pressing the Aim action, the UI container will be set to world space
+local function OnActionPressed(player, action, value)
+if action == "Aim" then
+    UI_CONTAINER.isScreenSpace = false
+    SCREEN_SPACE_UI.visibility = Visibility.FORCE_OFF
+    WORLD_SPACE_UI.visibility = Visibility.FORCE_ON
+end
+end
+
+-- On releasing the Aim action, the UI container will be set to screen space
+local function OnActionReleased(player, action, value)
+if action == "Aim" then
+    UI_CONTAINER.isScreenSpace = true
+    SCREEN_SPACE_UI.visibility = Visibility.FORCE_ON
+    WORLD_SPACE_UI.visibility = Visibility.FORCE_OFF
+end
+end
+
+Input.actionPressedEvent:Connect(OnActionPressed)
+Input.actionReleasedEvent:Connect(OnActionReleased)
+```
+
+See also: [Input.actionPressedEvent](input.md) | [CoreObject.GetCustomProperty](coreobject.md)
 
 ---
 
@@ -262,7 +302,7 @@ local notchWidth = nil
 if UI_CONTAINER.useSafeArea then
     local safeArea = UI.GetSafeArea()
     local screenSize = UI.GetScreenSize()
-    
+
     if safeArea.left > 0 then
         notchWidth = safeArea.left
         print("UI Container is using safe zone.")
