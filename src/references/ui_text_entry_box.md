@@ -6,14 +6,13 @@ tags:
   - Reference
 ---
 
-<!--@TODO: Check Create UI menu -->
 <!--@TODO: Add more Learn more links (i.e, tutorial) -->
 
-# UI Text Entry
+# UI Text Entry Box
 
 ## Overview
 
-The **UI Text Entry** object allows creators to provide a way for users to enter text. This could be used for taking a quiz, naming a pet, or even a text adventure game. The creator can capture the changed and submitted text and do with it what they need from there.
+The **UI Text Entry Box** object allows creators to provide a way for users to enter text. This could be used for taking a quiz, naming a pet, or even a text adventure game. The creator can capture the changed and submitted text and do with it what they need from there.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -41,9 +40,9 @@ There are many use cases as to why creators would want to provide a text field f
 
     Instead of using the Chat API, the text entry object could be used to capture commands.
 
-### UI Text Entry Object
+### UI Text Entry Box Object
 
-The **UI Text Entry** object can be added to the Hierarchy from two places.
+The **UI Text Entry Box** object can be added to the Hierarchy from two places.
 
 #### Core Content Window
 
@@ -53,7 +52,7 @@ In **Core Content** under **UI Elements**, the **UI Text Entry Box** can be foun
 
 #### Create Menu
 
-When right-clicking in the **Hierarchy**, creators can filter the menu and find the **Create UI Text Entry** item.
+When right-clicking in the **Hierarchy**, creators can filter the menu and find the **Create UI Text Entry Box** item.
 
 ![!Create Menu](../img/UITextEntry/create_menu.png){: .center loading="lazy" }
 
@@ -77,9 +76,9 @@ Below are some of the properties for the **UI Text Entry Box**. Other properties
 
 #### Behavior
 
-At runtime, a UI text entry object that **is interactable** can be clicked on with a mouse.
+At runtime, a UI text entry box object that **is interactable** can be clicked on with a mouse.
 
-When not being interacted with, the UI text entry object is in its background state. If the UI text entry object is empty and **Prompt** is true then the default text (using Prompt Color) is displayed. If the user has entered text or the creator has applied non-prompt text, then that text is also displayed.
+When not being interacted with, the UI text entry box object is in its background state. If the UI text entry box object is empty and **Prompt** is true then the default text (using Prompt Color) is displayed. If the user has entered text or the creator has applied non-prompt text, then that text is also displayed.
 
 #### API
 

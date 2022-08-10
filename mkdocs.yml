@@ -101,7 +101,7 @@ nav:
           - Terrain: references/terrain.md
           - Triggers: references/triggers.md
           - UI: references/ui.md
-          - ✨ UI Text Entry: references/ui_text_entry.md
+          - ✨ UI Text Entry Box: references/ui_text_entry_box.md
           - Vehicles: references/vehicles.md
           - Voice Chat: references/voice_chat.md
           - Weapons: references/weapons.md
