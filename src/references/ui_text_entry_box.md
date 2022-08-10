@@ -12,7 +12,7 @@ tags:
 
 ## Overview
 
-The **UI Text Entry Box** object allows creators to provide a way for users to enter text. This could be used for taking a quiz, naming a pet, or even a text adventure game. The creator can capture the changed and submitted text and do with it what they need from there.
+The **UI Text Entry Box** object allows creators to provide a way for players to enter text. This could be used for taking a quiz, naming a pet, or even a text adventure game. The creator can capture the changed and submitted text and do with it what they need from there.
 
 <div class="mt-video" style="width:100%">
     <video autoplay muted playsinline controls loop class="center" style="width:100%">
@@ -22,19 +22,19 @@ The **UI Text Entry Box** object allows creators to provide a way for users to e
 
 ### Use Cases
 
-There are many use cases as to why creators would want to provide a text field for users to enter text. Below lists a few ideas of how it could be used.
+There are many use cases as to why creators would want to provide a text field for players to enter text. Below lists a few ideas of how it could be used.
 
 - Customization
 
-    Users can name things (for example, a Pet) which allows for more customization.
+    Players can name things (for example, a Pet) which allows for more customization.
 
 - Searching
 
-    A search feature (for example, an Inventory) allows users to find things quicker than just scrolling through long lists.
+    A search feature (for example, an Inventory) allows players to find things quicker than just scrolling through long lists.
 
 - Text Adventure Games
 
-    Text-based adventure games that allow users to enter commands to move through the world.
+    Text-based adventure games that allow players to enter commands to move through the world.
 
 - Command Panel
 
