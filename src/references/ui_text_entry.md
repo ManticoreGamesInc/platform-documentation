@@ -6,7 +6,7 @@ tags:
   - Reference
 ---
 
-<!--@TODO: Correct name in Create menu (Text Entry vs Editable Text) -->
+<!--@TODO: Check Create UI menu -->
 <!--@TODO: Add more Learn more links (i.e, tutorial) -->
 
 # UI Text Entry
@@ -53,7 +53,7 @@ In **Core Content** under **UI Elements**, the **UI Text Entry Box** can be foun
 
 #### Create Menu
 
-When right-clicking in the **Hierarchy**, creators can filter the menu and find the **Create UI Editable Text** item.
+When right-clicking in the **Hierarchy**, creators can filter the menu and find the **Create UI Text Entry** item.
 
 ![!Create Menu](../img/UITextEntry/create_menu.png){: .center loading="lazy" }
 
@@ -67,6 +67,7 @@ Below are some of the properties for the **UI Text Entry Box**. Other properties
 | `Is Interactable` | Whether text control is enabled. |
 | `Is Multiline` | The text field can span multiple lines. |
 | `Image` | The background image of the control. |
+| `Prompt Text` | If provided, displays prompt text when the text field is empty. |
 | `Background Color` | The base color of the control. |
 | `Hovered Color` | The color when the cursor moves over the control. |
 | `Active Color` | The color when the user is editing the control. |
@@ -78,7 +79,7 @@ Below are some of the properties for the **UI Text Entry Box**. Other properties
 
 At runtime, a UI text entry object that **is interactable** can be clicked on with a mouse.
 
-When not being interacted with, the UI text entry object is in its background state. If the UI text entry object is empty and **Prompt** is true then the default text (using Prompt Color) is displayed. If the user has entered text or the creator has applied non-prompt text, the text is also displayed.
+When not being interacted with, the UI text entry object is in its background state. If the UI text entry object is empty and **Prompt** is true then the default text (using Prompt Color) is displayed. If the user has entered text or the creator has applied non-prompt text, then that text is also displayed.
 
 #### API
 
