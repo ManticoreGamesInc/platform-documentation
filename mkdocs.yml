@@ -149,6 +149,7 @@ nav:
           - Perk Systems: tutorials/perks_tutorial.md
           - Perk Systems, Part 2: tutorials/perks_tutorial_part2.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
+          - ✨ Pet Namer: tutorials/pet_namer.md
           - Photo Booth: tutorials/photo_booth.md
           - Producers: tutorials/producers_tutorial.md
           - SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
