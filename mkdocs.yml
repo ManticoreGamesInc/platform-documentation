@@ -46,7 +46,7 @@ nav:
           - Art in Core: references/art.md
           - Audio: references/audio.md
           - Binding Sets: references/binding_sets.md
-          - ✨ Blockchain: references/blockchain.md
+          - Blockchain: references/blockchain.md
           - Cameras and Settings: references/cameras_and_settings.md
           - Concurrent Storage: references/concurrent_storage.md
           - Community Content: getting_started/community_content.md
@@ -71,7 +71,7 @@ nav:
           - Materials: references/materials.md
           - Media Library: references/media_library.md
           - Merged Models: references/merged_models.md
-          - ✨ Migrating to Action Bindings: references/migrating_bindings.md
+          - Migrating to Action Bindings: references/migrating_bindings.md
           - Mobile Device Preview: references/mobile_device_preview.md
           - Modeling Reference: references/modeling.md
           - Networking: references/networking.md
@@ -101,6 +101,7 @@ nav:
           - Terrain: references/terrain.md
           - Triggers: references/triggers.md
           - UI: references/ui.md
+          - ✨ UI Text Entry Box: references/ui_text_entry_box.md
           - Vehicles: references/vehicles.md
           - Voice Chat: references/voice_chat.md
           - Weapons: references/weapons.md
@@ -127,7 +128,7 @@ nav:
           - Concurrent Storage: tutorials/concurrent_storage_tutorial.md
           - Converting to Mobile: tutorials/converting_to_mobile.md
           - Cosmetic System: tutorials/cosmetic_tutorial.md
-          - ✨ Creating an NFT: tutorials/creating_an_nft.md
+          - Creating an NFT: tutorials/creating_an_nft.md
           - Damageable Object Basics: tutorials/damageable_object_basics.md
           - Destructible Objects: tutorials/boss_tutorial.md
           - Creating Device Aware UI: tutorials/device_aware_ui.md
@@ -142,9 +143,9 @@ nav:
           - Make an Obby: tutorials/obby_tutorial.md
           - Model a Room: tutorials/scene_creation.md
           - Modeling Basics: tutorials/modeling_basics.md
-          - ✨ Network Dormancy: tutorials/network_dormancy.md
-          - ✨ NFT Inventory Loot: tutorials/nft_inventory_loot.md
-          - ✨ NFT Slideshow: tutorials/slideshow.md
+          - Network Dormancy: tutorials/network_dormancy.md
+          - NFT Inventory Loot: tutorials/nft_inventory_loot.md
+          - NFT Slideshow: tutorials/slideshow.md
           - Perk Systems: tutorials/perks_tutorial.md
           - Perk Systems, Part 2: tutorials/perks_tutorial_part2.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
