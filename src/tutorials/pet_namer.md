@@ -316,4 +316,4 @@ The **UI Text Entry Box** is a really exciting tool. It allows creators to not r
 
 ## Learn More
 
-[UI Text Entry Box Reference](../references/ui_text_entry_box.md) | [UI Text Entry Box API](../api/uieditabletext.md) |
+[Text Entry Validation Tutorial](../tutorials/text_entry_validation/) | [UI Text Entry Box Reference](../references/ui_text_entry_box.md) | [UI Text Entry Box API](../api/uieditabletext.md) |
