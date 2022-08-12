@@ -158,7 +158,7 @@ Test the game by entering text into the **Pet Name** text entry box and making s
 
 In this section, you will create a new script that will handle censoring words that the player enters into the text entry box. For example, maybe a pet name can not have "Cat" in the name.
 
-### Create World List Data Table
+### Create Word List Data Table
 
 A data table will be used to store the words to find and replace in the UI text entry box.
 
@@ -177,7 +177,7 @@ Create a new script called `CensoredWordsClient` and place it in the client cont
 
 #### Add Custom Properties
 
-The `CensoredWordsClient` script needs a reference to the Pet Name text entry box and the world list data table.
+The `CensoredWordsClient` script needs a reference to the Pet Name text entry box and the word list data table.
 
 1. Add the **Pet Name** object in the **Hierarchy** as a custom property.
 2. Add the **Word List** data table from **Project Content** as a custom property.
@@ -195,7 +195,7 @@ local WORD_LIST = require(script:GetCustomProperty("WordList"))
 
 #### Create CensorWords Function
 
-Create a function called `CensorWords`. This function will receive the text from the text entry box that will be used in the validation check. Looping through the `WORD_LIST` table, each word in the `Find` column can be checked against the `text` parameter. If there is a match, then the text is updated by replacing the found wound with the replacement word. Finally, the `PET_NAME` text is updated with the modified `text` value.
+Create a function called `CensorWords`. This function will receive the text from the text entry box that will be used in the validation check. Looping through the `WORD_LIST` table, each word in the `Find` column can be checked against the `text` parameter. If there is a match, then the text is updated by replacing the found word with the replacement word. Finally, the `PET_NAME` text is updated with the modified `text` value.
 
 ```lua
 local function CensorWords(obj, text)
@@ -225,10 +225,10 @@ PET_NAME.textCommittedEvent:Connect(CensorWords)
     local WORD_LIST = require(script:GetCustomProperty("WordList"))
 
     local function CensorWords(obj, text)
-    for index, row in ipairs(WORD_LIST) do
-        text = string.gsub(text, row.Find, row.Replacement)
-        text = string.gsub(text, string.lower(row.Find), row.Replacement)
-    end
+        for index, row in ipairs(WORD_LIST) do
+            text = string.gsub(text, row.Find, row.Replacement)
+            text = string.gsub(text, string.lower(row.Find), row.Replacement)
+        end
 
         PET_NAME.text = text
     end
@@ -277,7 +277,7 @@ local PET_NAME = script:GetCustomProperty("PetName"):WaitForObject()
 
 #### Create CensorWords Function
 
-Create a function called `NumbersOnly`. This function will receive the text from the text entry box that will be used in the validation check. If will check for any character that is not a number. If it is not a number character, then it will be remove from the `text`.
+Create a function called `NumbersOnly`. This function will receive the text from the text entry box that will be used in the validation check. It will check for any character that is not a number. If it is not a number character, then it will be removed from the `text`.
 
 ```lua
 local function NumbersOnly(obj, text)
