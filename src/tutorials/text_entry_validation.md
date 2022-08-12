@@ -1,12 +1,12 @@
 ---
 id: ui_text_entry_box_validation
-name: Text Entry Validation
-title: Text Entry Validation
+name: UI Text Entry Validation
+title: UI Text Entry Validation
 tags:
     - Tutorial
 ---
 
-# Text Entry Validation
+# UI Text Entry Validation
 
 ## Overview
 

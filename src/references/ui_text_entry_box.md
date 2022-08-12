@@ -111,4 +111,4 @@ TEXT_BOX.textCommittedEvent:Connect(OnTextCommitted)
 
 ## Learn More
 
-[UI Editable Text API](../api/uieditabletext.md)
+[UI Editable Text API](../api/uieditabletext.md) | [Pet Namer Tutorial](../tutorials/pet_namer.md) | [UI Text Entry Validation Tutorial](../tutorials/text_entry_validation.md)
