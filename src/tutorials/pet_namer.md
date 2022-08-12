@@ -16,7 +16,7 @@ The [UI Text Entry Box](../references/ui_text_entry_box.md) is a new UI componen
 - Knowledge Level: Basic Lua Understanding
 - Skills you will learn:
     - Design a simple UI prompt.
-    - Detect if the player enters text to the Text Entry Box.
+    - Detect if the player enters text into the Text Entry Box.
     - Detect if a player enters a trigger.
     - Display Fly Up Text above the player's head.
 
@@ -32,7 +32,7 @@ The first step will be to add all the necessary objects to the scene and put the
 
 ### Add a Pet
 
-Open the Core Content window and search for `spider skinned mesh`. Then drag and drop the **Spider Skinned Mesh** into the scene. 
+Open the Core Content window and search for `spider skinned mesh`. Then drag and drop the **Spider Skinned Mesh** into the scene.
 
 ![!Spider](../img/PetNamer/spider.png){: .center loading="lazy" }
 
@@ -78,15 +78,15 @@ Change the following properties:
 
 ![!UI Image Properties](../img/PetNamer/imageProperties.png){: .center loading="lazy" }
 
-### Create a UI Text Box
+### Create a UI Text Entry Box
 
-From the Core Content window, drag and drop a **UI Text Box** into the Hierarchy. Make it a child of the **UI Image**.
+From the Core Content window, drag and drop a **UI Text Entry Box** into the Hierarchy. Make it a child of the **UI Image**.
 
-![!UI Text Box](../img/PetNamer/textbox.png){: .center loading="lazy" }
+![!UI Text Entry Box](../img/PetNamer/textbox.png){: .center loading="lazy" }
 
 ### Change Text Box Properties
 
-Select the **UI Text Box** in the Hierarchy and open the **Properties** window. Change the following properties:
+Select the **UI Text Entry Box** in the Hierarchy and open the **Properties** window. Change the following properties:
 
 - Set the **Text** property to `Type New Name:`.
 - Set the **Size** property to `35`.
@@ -96,7 +96,7 @@ Select the **UI Text Box** in the Hierarchy and open the **Properties** window. 
 - Set the **Vertical Justification** to **Center**.
 - Disable the **Wrap Text** property.
 
-![!UI Text Box Properties](../img/PetNamer/textboxProperties.png){: .center loading="lazy" }
+![!UI Text Entry Box Properties](../img/PetNamer/textboxProperties.png){: .center loading="lazy" }
 
 ### Create a UI Text Entry Box
 
@@ -118,7 +118,7 @@ Select the **UI Text Entry Box** in the Hierarchy and open the **Properties** wi
 
 ## The Pet Namer Script
 
-The UI prompt and scene are all ready now. The last part is to script the functionality of the player being able to interact with trigger to display the UI prompt and change the spider's name with the entered text.
+The UI prompt and scene are all ready now. The last part is to script the functionality of the player being able to interact with the trigger to display the UI prompt and change the spider's name with the entered text.
 
 ### Create a New Script
 
@@ -168,11 +168,11 @@ The player will be greeting the spider pet as it enters and exits the trigger. T
 
 ```lua
 local function Talk(message)
-	local textPos = localPlayer:GetWorldPosition() + Vector3.UP * 150
-	UI.ShowFlyUpText(message, textPos, {
-		isBig = true,
-		duration = 1
-	})
+    local textPos = localPlayer:GetWorldPosition() + Vector3.UP * 150
+    UI.ShowFlyUpText(message, textPos, {
+        isBig = true,
+        duration = 1
+    })
 end
 ```
 
@@ -182,10 +182,10 @@ The UI prompt will be displayed and hidden based on the player's interaction wit
 
 ```lua
 local function ToggleUI(isVisible)
-	UICONTAINER.visibility = isVisible and Visibility.FORCE_ON  or Visibility.FORCE_OFF
-	UI.SetCursorVisible(isVisible)
-	UI.SetCanCursorInteractWithUI(isVisible)
-	TRIGGER.isInteractable = not isVisible
+    UICONTAINER.visibility = isVisible and Visibility.FORCE_ON or Visibility.FORCE_OFF
+    UI.SetCursorVisible(isVisible)
+    UI.SetCanCursorInteractWithUI(isVisible)
+    TRIGGER.isInteractable = not isVisible
 end
 ```
 
@@ -197,27 +197,27 @@ The `textCommittedEvent` occurs when the **UI Text Entry Box** is clicked off or
 
 ```lua
 local function OnBeginOverlap(trigger, other)
-	if other:IsA("Player") and other == localPlayer then
-		Talk("Hello " .. SPIDER_RIG.name)
-	end
+    if other:IsA("Player") and other == localPlayer then
+        Talk("Hello " .. SPIDER_RIG.name)
+    end
 end
 
 local function OnEndOverlap(trigger, other)
-	if other:IsA("Player") and other == localPlayer then
-		Talk("Goodbye " .. SPIDER_RIG.name)
-		ToggleUI(false)
-	end
+    if other:IsA("Player") and other == localPlayer then
+        Talk("Goodbye " .. SPIDER_RIG.name)
+        ToggleUI(false)
+    end
 end
 
 local function OnInteracted(trigger, other)
-	if other:IsA("Player") and other == localPlayer then
-		ToggleUI(true)
-	end
+    if other:IsA("Player") and other == localPlayer then
+        ToggleUI(true)
+    end
 end
 
 local function OnTextCommitted(object, text)
-	SPIDER_RIG.name = text
-	ToggleUI(false)
+    SPIDER_RIG.name = text
+    ToggleUI(false)
 end
 ```
 
@@ -261,7 +261,7 @@ TRIGGER.interactionLabel = "Change Name"
         end
 
         local function ToggleUI(isVisible)
-            UICONTAINER.visibility = isVisible and Visibility.FORCE_ON  or Visibility.FORCE_OFF
+            UICONTAINER.visibility = isVisible and Visibility.FORCE_ON or Visibility.FORCE_OFF
             UI.SetCursorVisible(isVisible)
             UI.SetCanCursorInteractWithUI(isVisible)
             TRIGGER.isInteractable = not isVisible
@@ -312,8 +312,8 @@ Save the script and preview the project. The player should be able to interact w
 
 ## Summary
 
-The **UI Text Entry Box** is a really exciting tool. It allows creators to not rely on the Chat Box as the only method of inputting text. This opens the door to having searchable inventories, auto complete tool, and many other capabilities.
+The **UI Text Entry Box** is a really exciting tool. It allows creators to not rely on the Chat Box as the only method of inputting text. This opens the door to having searchable inventories, auto complete tools, and many other capabilities.
 
 ## Learn More
 
-[UI Text Entry Box Reference](../references/ui_text_entry_box.md) | [UI Text Entry Box API](../api/uieditabletext.md) | 
+[UI Text Entry Box Reference](../references/ui_text_entry_box.md) | [UI Text Entry Box API](../api/uieditabletext.md) |
