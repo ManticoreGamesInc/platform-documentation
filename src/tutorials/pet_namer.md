@@ -10,7 +10,7 @@ tags:
 
 ## Overview
 
-The [UI Text Entry Box](../references/ui_text_entry_box.md) is a new UI component that allows players to enter text without using the Chat window. This tutorial will show how to create a UI prompt allowing the player to rename a pet spider object. The player will also greet the pet using its given name.
+The [UI Text Entry Box](../references/ui_text_entry_box.md) is a new UI component that allows players to enter text without using the chat window. This tutorial will show how to create a UI prompt allowing the player to rename a pet spider object. The player will also greet the pet using its given name.
 
 - Completion Time: ~15 minutes
 - Knowledge Level: Basic Lua Understanding
@@ -78,25 +78,25 @@ Change the following properties:
 
 ![!UI Image Properties](../img/PetNamer/imageProperties.png){: .center loading="lazy" }
 
-### Create a UI Text Entry Box
+### Create a UI Text Box
 
-From the Core Content window, drag and drop a **UI Text Entry Box** into the Hierarchy. Make it a child of the **UI Image**.
+From the Core Content window, drag and drop a **UI Text Box** into the Hierarchy. Make it a child of the **UI Image**.
 
-![!UI Text Entry Box](../img/PetNamer/textbox.png){: .center loading="lazy" }
+![!UI Text Box](../img/PetNamer/textbox.png){: .center loading="lazy" }
 
 ### Change Text Box Properties
 
-Select the **UI Text Entry Box** in the Hierarchy and open the **Properties** window. Change the following properties:
+Select the **UI Text Box** in the Hierarchy and open the **Properties** window. Change the following properties:
 
 - Set the **Text** property to `Type New Name:`.
 - Set the **Size** property to `35`.
-- Set the **X Offset** and **Y Offset** to `50`.
-- Set the **Width** to `300`.
-- Set the **Height** to `100`.
-- Set the **Vertical Justification** to **Center**.
+- Set the **X Offset** and **Y Offset** property to `50`.
+- Set the **Width** property to `300`.
+- Set the **Height** property to `100`.
+- Set the **Vertical Justification** property to **Center**.
 - Disable the **Wrap Text** property.
 
-![!UI Text Entry Box Properties](../img/PetNamer/textboxProperties.png){: .center loading="lazy" }
+![!UI Text Box Properties](../img/PetNamer/textboxProperties.png){: .center loading="lazy" }
 
 ### Create a UI Text Entry Box
 
