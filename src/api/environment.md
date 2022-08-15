@@ -70,7 +70,7 @@ See also: [World.FindObjectsByType](world.md) | [CoreObject.GetCustomProperty](c
 
 Example using:
 
-### `GetPlaform`
+### `GetPlatform`
 
 Knowing what platform Core is running on can be useful if you need to handle something specific for one platform. For example, on iOS it could be possible that the player is using a controller plugged into the device, so the input type would be controller. Having a way to detect the platform type would allow creators to handle things such as what UI to display based on the platform type instead of the input type.
 
@@ -93,7 +93,7 @@ end
 print(PlatformType.GetName(Environment.GetPlatform()))
 ```
 
-See also: [PlatformType.GetName](platformtype.md) | [CoreLua.print](coreluafunctions.md)
+See also: [PlatformType](enums.md#platformtype) | [CoreLua.print](coreluafunctions.md)
 
 ---
 
