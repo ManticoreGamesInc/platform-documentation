@@ -334,4 +334,4 @@ Consider creating a validation API that could cover a wide range of things that 
 
 ## Learn More
 
-[UI Text Box Entry](../references/ui_text_entry_box.md) | [UI Editable Text API](../api/uieditabletext.md) | [Pet Namer Tutorial](../tutorials/pet_namer.md)
+[UI Text Box Entry](../references/ui_text_entry_box.md) | [UI Editable Text API](../api/uitextentry.md) | [Pet Namer Tutorial](../tutorials/pet_namer.md)
