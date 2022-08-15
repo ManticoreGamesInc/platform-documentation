@@ -632,7 +632,7 @@ See also: [CoreObject.GetCustomProperty](coreobject.md) | [Game.GetLocalPlayer](
 
 ## Tutorials
 
-[Touch API Basics Tutorial](..tutorials/touch_basics/)
+[Touch API Basics Tutorial](../tutorials/touch_basics.md)
 
 ## Learn More
 
