@@ -959,6 +959,44 @@ Example using:
 
 ### `GetJoinTransferData`
 
+In this example, we imagine a project with two separate scenes and players can transfer between them. When a player transfers from the first scene to the second one, we use the optional spawnKey parameter to send team informmaton that can be read from the transfer data when the player has joined the game. Based on the spawn key information the correct weapon template will be spawned for the player.
+
+```lua
+-- Server Script (Scene 1)
+player:TransferToScene("YourSceneName", {
+
+    spawnKey = "Team2" -- Set spawn key to Team2 for this example
+
+})
+
+-- Server Script (Scene 2)
+local TEAM_1_WEAPON = script:GetCustomProperty("Team1Weapon")
+local TEAM_2_WEAPON = script:GetCustomProperty("Team2Weapon")
+
+local function OnPlayerJoined(player)
+    local transferData = player:GetJoinTransferData()
+    local weaponTemplate = TEAM_1_WEAPON
+
+    if transferData.spawnKey == "Team2" then
+        weaponTemplate = TEAM_2_WEAPON
+    end
+
+    local weapon = World.SpawnAsset(weaponTemplate)
+
+    weapon:Equip(player)
+end
+
+Game.playerJoinedEvent:Connect(OnPlayerJoined)
+```
+
+See also: [CoreObject.GetCustomProperty](coreobject.md) | [World.SpawnAsset](world.md) | [Event.Connect](event.md) | [Player.TransferToScene](player.md) | [Game.playerJoinedEvent](game.md) | [Weapon.Equip](weapon.md) | [PlayerTransferData.spawnKey](playertransferdata.md)
+
+---
+
+Example using:
+
+### `GetJoinTransferData`
+
 ### `GetLeaveTransferData`
 
 In this example, transfer data is printed to the server log each time a player joins or leaves the game. While this works in preview mode, there will never be a `gameId` in that case, and the `reason` for the transfer will always be `BROWSE`. Therefore, this example works best when the game is published.

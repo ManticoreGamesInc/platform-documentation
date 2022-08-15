@@ -11,7 +11,7 @@ tags:
 
 ## Basic Game State
 
-### [Basic Game State Manager](#basic-game-state-manager)
+### Basic Game State Manager
 
 Manages lobby and round game states and fires events to notify other game systems of state changes
 
@@ -251,7 +251,7 @@ Capture points are used to draw players together to focus the action.
 - `CapturePointOwnerChanged(string id, int oldOwner, int newOwner)`
 - `CapturePointEnabledStateChanged(string id, bool oldEnabled, bool newEnabled)`
 
-#### [Capture Point Assault](#capture-point-assault)
+#### Capture Point Assault
 
 Assault style capture point where one team defends and one team attacks
 
@@ -322,7 +322,7 @@ Shows the state of the capture point that the local player is currently standing
 
 Requires:
 
-[Capture Point Assault](#capture-point-assault/control) / [Capture Point Control](#capture-point-control)
+[Capture Point Assault](#capture-point-assault) / [Capture Point Control](#capture-point-control)
 
 `HasEditableUI (Panel)`
 
@@ -344,7 +344,7 @@ Shows the state of all capture points
 
 Requires:
 
-[Capture Point Assault](#capture-point-assault/control) / [Capture Point Control](#capture-point-control)
+[Capture Point Assault](#capture-point-assault) / [Capture Point Control](#capture-point-control)
 
 `HasEditableUI (Panel)`
 
@@ -357,7 +357,7 @@ Custom Properties:
 
 ## Constricting Play Zones
 
-### [Constricting Play Zone](#constricting-play-zone)
+### Constricting Play Zone
 
 Battle royale-style play zone that shrinks and damages players outside the zone
 
@@ -451,7 +451,7 @@ Displays information about a local player ability
 
 Requires:
 
-[Ability](#ability)
+[Ability](ability.md)
 
 `HasEditableUI (Panel Control)`
 

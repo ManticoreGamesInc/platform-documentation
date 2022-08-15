@@ -248,6 +248,15 @@ tags:
 | `Orientation.HORIZONTAL` | `0` | Scrolls horizontally. |
 | `Orientation.VERTICAL` | `1` | Scrolls vertically. |
 
+## PlatformType
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `PlatformType.UNKNOWN` | `0` | Unknown. |
+| `PlatformType.WINDOWS` | `1` | Windows. |
+| `PlatformType.IOS` | `2` | iOS. |
+| `PlatformType.LINUX` | `3` | Linux. |
+
 ## PlayerTransferReason
 
 | Enum Name | Value | Description |

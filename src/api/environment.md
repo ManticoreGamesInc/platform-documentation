@@ -22,6 +22,7 @@ The Environment namespace contains a set of functions for determining where a sc
 | `Environment.IsMultiplayerPreview()` | `boolean` | Returns `true` if running in multiplayer preview mode. | None |
 | `Environment.IsSinglePlayerPreview()` | `boolean` | Returns `true` if running in single-player preview mode. | None |
 | `Environment.GetDetailLevel()` | [`DetailLevel`](enums.md#detaillevel) | Returns the Detail Level selected by the player in the Settings menu. Useful for determining whether to spawn templates for VFX or other client-only objects, or selecting templates that are optimized for a particular detail level based on the player's settings. | Client-Only |
+| `Environment.GetPlatform()` | [`PlatformType`](enums.md#platformtype) | Returns the type of platform on which Core is currently running. | None |
 
 ## Examples
 
@@ -38,21 +39,21 @@ local BASIC_VFX_TEMPLATE = script:GetCustomProperty("BasicVFX")
 function Explosion(epicenter, radius, damageAmount)
     -- An optimization because .sizeSquared is faster than .size
     local radiusSquared = radius * radius
-    
+
     -- Deal damage in the area
     local damageables = World.FindObjectsByType("Damageable")
     local dmg = Damage.New(damageAmount)
-    
+
     for _,obj in ipairs(damageables) do
         local deltaPos = epicenter - obj:GetWorldPosition()
         if deltaPos.sizeSquared <= radiusSquared then
             obj:ApplyDamage(dmg)
         end
     end
-    
+
     -- Spawn visual effects
     local detailLevel = Environment.GetDetailLevel()
-    
+
     if detailLevel > DetailLevel.LOW then
         -- High-quality effects
         World.SpawnAsset(FULL_VFX_TEMPLATE, {position = epicenter})
@@ -64,6 +65,35 @@ end
 ```
 
 See also: [World.FindObjectsByType](world.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Damage.New](damage.md) | [Vector3.sizeSquared](vector3.md)
+
+---
+
+Example using:
+
+### `GetPlatform`
+
+Knowing what platform Core is running on can be useful if you need to handle something specific for one platform. For example, on iOS it could be possible that the player is using a controller plugged into the device, so the input type would be controller. Having a way to detect the platform type would allow creators to handle things such as what UI to display based on the platform type instead of the input type.
+
+```lua
+-- Client script
+
+-- Get the platform for the client, this is an integer
+local platform = Environment.GetPlatform()
+
+-- A check against the PlatformType enums can be done.
+
+if platform == PlatformType.IOS then
+    print("Do something specific for the iOS platform.")
+else
+    print("Do something for all other platforms.")
+end
+
+-- Creators can access the enum directly by passing in the integer, and
+-- will get back the platform name
+print(PlatformType.GetName(Environment.GetPlatform()))
+```
+
+See also: [PlatformType](enums.md#platformtype) | [CoreLua.print](coreluafunctions.md)
 
 ---
 

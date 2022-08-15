@@ -123,7 +123,7 @@ To avoid getting a long queue, reduce data saving frequency.
 To effectively test what happens on a server with concurrent storage calls, use message and error code when updating data. For every Set Concurrent data calls you get 3 variables returning to use: `new data`, `error code`, `error message`. Utilize the error code and message in order to create print calls for debugging purposes. Doing this allows you to revisit your server logs and check on saving issues or any other bugs you may not encounter when testing locally in single-player and multiplayer preview mode.
 
 !!! warning "playerLeftEvent with set concurrent calls"
-    When testing concurrent storage locally, make sure to test in local multiplayer preview with **Allow zero clients**, otherwise any set concurrent calls in the `playerLeftEvent` listener will fail due to the server being killed instantly.
+    When testing concurrent storage locally, make sure to test in local multiplayer preview with **Allow zero clients**, otherwise any set concurrent calls in the `playerLeftEvent` listener will fail due to the server being killed instantly. Make sure to close out each client window (Bot) first before closing the multiplayer preview session.
 
 ## Learn More
 
