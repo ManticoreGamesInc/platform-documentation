@@ -53,8 +53,9 @@ A lowercase type denotes a basic Lua type, such as `string` and `boolean`. You c
 | [Trigger](../api/trigger.md) | [UIButton](../api/uibutton.md) | [UIContainer](../api/uicontainer.md) | [UIControl](../api/uicontrol.md) |
 | [UIEventRSVPButton](../api/uieventrsvpbutton.md) | [UIImage](../api/uiimage.md) | [UIPanel](../api/uipanel.md) | [UIPerkPurchaseButton](../api/uiperkpurchasebutton.md) |
 | [UIProgressBar](../api/uiprogressbar.md) | [UIRewardPointsMeter](../api/uirewardpointsmeter.md) | [UIScrollPanel](../api/uiscrollpanel.md) | [UIText](../api/uitext.md) |
-| [Vector2](../api/vector2.md) | [Vector3](../api/vector3.md) | [Vector4](../api/vector4.md) | [Vehicle](../api/vehicle.md) |
-| [Vfx](../api/vfx.md) | [VoiceChatChannel](../api/voicechatchannel.md) | [Weapon](../api/weapon.md) | [WorldText](../api/worldtext.md) |
+| [UITextEntry](../api/uitextentry.md) | [Vector2](../api/vector2.md) | [Vector3](../api/vector3.md) | [Vector4](../api/vector4.md) |
+| [Vehicle](../api/vehicle.md) | [Vfx](../api/vfx.md) | [VoiceChatChannel](../api/voicechatchannel.md) | [Weapon](../api/weapon.md) |
+| [WorldText](../api/worldtext.md) | | | |
 
 ## Core Lua Namespaces
 

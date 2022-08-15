@@ -259,6 +259,7 @@ nav:
           - UIRewardPointsMeter: api/uirewardpointsmeter.md
           - UIScrollPanel: api/uiscrollpanel.md
           - UIText: api/uitext.md
+          - UITextEntry: api/uitextentry.md
           - Vector2: api/vector2.md
           - Vector3: api/vector3.md
           - Vector4: api/vector4.md
