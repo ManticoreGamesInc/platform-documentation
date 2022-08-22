@@ -244,8 +244,8 @@ Now that you have finished the steps to make the game, it is time to do more tes
 2. Press ![Play](../img/EditorManual/icons/Icon_Play.png) to start the preview. This will open a separate game window for each player.
 {: .image-inline-text .image-background }
 
-Try out your dungeons, testing enemy AI behavior, the shop items, and making sure you can't get trapped anywhere. Once you are happy with the game, you are ready to [publish](publishing.md).
+Try out your dungeons, testing enemy AI behavior, the shop items, and making sure you can't get trapped anywhere. Once you are happy with the game, you are ready to [publish](../getting_started/publishing.md).
 
 ## Learn More
 
-[Publishing Your Game](publishing.md) | [Dungeon Crawler Framework Reference](dungeon_framework.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons.md)
+[Publishing Your Game](../getting_started/publishing.md) | [Dungeon Crawler Framework Reference](../references/dungeon_framework.md) | [Environment Art Tutorial](environment_art.md) | [Weapons Tutorial](weapons_tutorial.md)

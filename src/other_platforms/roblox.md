@@ -12,7 +12,7 @@ tags:
 
 The purpose of this page is to let experienced game developers get started using the unique features of the Core platform.
 
-- For a general introduction to creating with Core, see [Intro to the Core Editor](editor_intro.md)
+- For a general introduction to creating with Core, see [Intro to the Core Editor](../getting_started/editor_intro.md)
 - For a complete technical overview, see the [Core API Documentation](../api/index.md).
 
 ## Roblox

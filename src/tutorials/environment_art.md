@@ -15,7 +15,7 @@ tags:
 Learn how to generate, sculpt, and paint terrain, as well as adding foliage and a swimmable water post-process effect. This tutorial will focus on making a landscape with a path and river, but can be customized to build any natural environment.
 
 - **Completion Time:** 30 minutes
-- **Previous Knowledge:** [Introduction to the Core Editor](editor_intro.md)
+- **Previous Knowledge:** [Introduction to the Core Editor](../getting_started/editor_intro.md)
 - **Skills you will learn:**
     - Creating and sculpting terrain
     - Creating swimmable volumes
@@ -46,7 +46,7 @@ There are different options for types of terrain that can be generated in Core. 
 4. Press ![Play](../img/EditorManual/icons/Icon_Play.png) or ++equal++ to explore the newly generated terrain from a player perspective.
  {: .image-inline-text .image-background .image-background}
 
-![!ArtIntro](../img/EnvironIntro/BaseTerrain.png "Art Screenshot"){: .center loading="lazy" }
+![!ArtIntro](../img/EnvironIntro/EnvironmentalArt/BaseTerrain.png "Art Screenshot"){: .center loading="lazy" }
 
 ### Rearrange the Scene
 
@@ -326,11 +326,11 @@ There are other complete sky templates available, as well as the different versi
 
 ### Finish the Scene
 
-The final step is to add structures and props that finish the scene. See the [Complex Modeling](modeling.md) and [Community Content](community_content.md) reference to learn about creating props and using props made by other Core creators.
+The final step is to add structures and props that finish the scene. See the [Complex Modeling](../references/modeling.md) and [Community Content](../getting_started/community_content.md) reference to learn about creating props and using props made by other Core creators.
 
 ## Learn More
 
 <lite-youtube videoid="KFYlOzx7wm0" playlistid="PLiTIshJkGqBNUC2D5R24wRJWi8d6Egxbn" playlabel="Environment Art"></lite-youtube>
 {: .video-container }
 
-[Custom Materials](materials.md) | [Complex Modeling](modeling.md) | [Community Content](community_content.md) | [Visual Effects](vfx_tutorial.md)
+[Custom Materials](../references/materials.md) | [Complex Modeling](../references/modeling.md) | [Community Content](../getting_started/community_content.md) | [Visual Effects](vfx_tutorial.md)

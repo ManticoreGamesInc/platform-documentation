@@ -77,7 +77,7 @@ Gatherables can be created from any of the Gatherable Examples, but the **Gather
 
 ### Change Gatherable Respawn Properties
 
-Gatherables are most performant when they are together in a single gatherable group, which is possible as long as the share the same respawn characteristics listed in the [**Properties**](#properties) section.
+Gatherables are most performant when they are together in a single gatherable group, which is possible as long as the share the same respawn characteristics listed in the [**Properties**](#respawn-properties) section.
 
 1. Open the **Gatherable Cube** template group and find the **StaticContext (Open Me)** folder.
 2. In the **StaticContext (Open Me)** folder, select the **Gatherables Group (Open Me)** group.

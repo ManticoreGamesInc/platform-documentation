@@ -2,9 +2,8 @@
 title: Tags
 hide:
     - navigation
-    - toc
 ---
 
 # Contents grouped by Tag
-
-[TAGS]
+<!-- vale Google.Acronyms = NO -->
+[TAGS]()

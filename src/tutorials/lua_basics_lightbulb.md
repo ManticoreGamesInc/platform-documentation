@@ -43,7 +43,7 @@ When a player presses ++F++ while near the light switch, it will flip and either
 
 1. Hold left-click on the **Light Bulb & Switch** package icon and drag it into your project by either dragging it into the **Main Viewport** somewhere in your world or dragging it into your **Hierarchy**.
 2. Make sure **Selection Mode** is set to **Group** so you select the entire template when clicking on it in the **Main Viewport**. You can use the ++C++ key to switch between **Group Selection Mode** and **Object Selection Mode**.
-3. Change the position of the template and its components where you want it using the transform tools in the top toolbar. To learn more about moving objects, check out the [Intro to the Editor](editor_intro.md) tutorial.
+3. Change the position of the template and its components where you want it using the transform tools in the top toolbar. To learn more about moving objects, check out the [Intro to the Editor](../getting_started/editor_intro.md) tutorial.
 
 ![Well lit](../img/LightBulb/image6.png){: .image-frame .center loading="lazy" }
 
@@ -61,7 +61,7 @@ Right click on the **Lightbulb & Switch** template in the **Hierarchy** and clic
 The template and the objects in the template will change from **blue**{: style="color: var(--core-color-templetized)"} to **teal**{: style="color: var(--core-color-deinstanced)"}. This color change means that the template can now be edited.
 
 !!! info
-    Deinstancing allows you to make changes to a particular copy of a template without changing the template itself. You can learn more about how this works in our [Template Reference](templates.md).
+    Deinstancing allows you to make changes to a particular copy of a template without changing the template itself. You can learn more about how this works in our [Template Reference](../references/templates.md).
 
 ### Create and Add a New Script
 
@@ -204,7 +204,7 @@ Turn on **Rotation** mode by clicking the ![Rotation](../img/EditorManual/icons/
 ![Switch Rotation Mode](../img/LightBulb/SwitchRotationMode.png){: .image-frame .center loading="lazy" }
 
 !!! info
-    The editor keyboard shortcuts, such that ++E++ switches to **Rotation** mode, can help productivity and speed while using the Core editor. Check out all the keybindings in our [Editor Keybindings](editor_keybindings.md) reference.
+    The editor keyboard shortcuts, such that ++E++ switches to **Rotation** mode, can help productivity and speed while using the Core editor. Check out all the keybindings in our [Editor Keybindings](../references/editor_keybindings.md) reference.
 
 Look at the **Properties** window. In the **Transform** section. You should see a property called **Rotation** with an **X**, **Y**, and **Z** value.
 

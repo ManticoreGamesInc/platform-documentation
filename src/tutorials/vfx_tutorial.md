@@ -310,7 +310,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
 7. Click the button at the top left of the Core Editor to create a new script; let's call it `TreasureChest`.
 
-    ![Create New Script](../img/scripting/createNewScript.png){: .center loading="lazy" }
+    ![Create New Script](../img/EditorManual/PersistentStorage/createNewScript.png){: .center loading="lazy" }
 
     Drag this script into your TreasureChest group in the Hierarchy.
 
@@ -400,7 +400,7 @@ To start, open up a new project or whatever project you'd like to make this trea
 
 #### Creating a Pickup to Unlock the Chest
 
-1. [Community Content](community_content.md) is an insanely valuable resource for making your life easier. Other users (and even you too if you want!) post creations that they have made for anyone to use. This helps people who prefer to program still have quality and varied art models to use in their games, and art people who need coding help the types of resources to do that.
+1. [Community Content](../getting_started/community_content.md) is an insanely valuable resource for making your life easier. Other users (and even you too if you want!) post creations that they have made for anyone to use. This helps people who prefer to program still have quality and varied art models to use in their games, and art people who need coding help the types of resources to do that.
 
     In our case, we want an item the player can pick up. Luckily, there is something like that already on Community Content.
 
