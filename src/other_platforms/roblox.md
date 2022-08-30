@@ -29,7 +29,7 @@ Editor controls are very similar to Roblox, and most keyboard shortcuts are the 
 
 ### Collaboration
 
-Game files are stored locally on your machine, usually under ``Documents/My Games/Core/Saved/Maps``. This means that you can use conventional version control, like git, and Core files are small enough to also be shared through cloud drives.
+Game files are stored locally on your machine, usually under `Documents/My Games/Core/Saved/Maps`. This means that you can use conventional version control, like git, and Core files are small enough to also be shared through cloud drives.
 
 Published Core games can also be marked as editable, allowing others to customize and modify them, and many successful Core Games are available to use as starting points.
 

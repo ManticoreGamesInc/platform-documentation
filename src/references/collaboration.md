@@ -44,9 +44,9 @@ All of your Core projects, called **Maps** are files saved on your computer, so 
 
 ### Using Community-Created Content
 
-Core creators have made a vast array of models, utilities, and even complete games that are freely available for you to use in your own projects. **Community Content** can be imported from within the Core Editor, and allows you to gather assets and utilities in your game, as well as share things you make with other creators. See the [Community Content](community_content.md) reference to learn more about how to import art and utilities made by other creators into your projects.
+Core creators have made a vast array of models, utilities, and even complete games that are freely available for you to use in your own projects. **Community Content** can be imported from within the Core Editor, and allows you to gather assets and utilities in your game, as well as share things you make with other creators. See the [Community Content](../getting_started/community_content.md) reference to learn more about how to import art and utilities made by other creators into your projects.
 
-The **Community Projects** are games made by creators that have been shared so that others can use and remix them. You can share your own games as Community Projects as well. See the [Publishing Guide](publishing.md) to learn more.
+The **Community Projects** are games made by creators that have been shared so that others can use and remix them. You can share your own games as Community Projects as well. See the [Publishing Guide](../getting_started/publishing.md) to learn more.
 
 1. Open the **Create** menu from the Core Launcher.
 2. Select **Community Projects**, instead of a New Empty Project or a Gameplay Framework.
@@ -141,4 +141,4 @@ Some code editors have an option to create a shared version of program files, th
 
 ## Learn More
 
-[Community Content](community_content.md) | [Template Reference](templates.md) | [GitHub Tutorial](github.md) | [Publishing Guide](publishing.md)
+[Community Content](../getting_started/community_content.md) | [Template Reference](templates.md) | [GitHub Tutorial](../tutorials/github.md) | [Publishing Guide](../getting_started/publishing.md)

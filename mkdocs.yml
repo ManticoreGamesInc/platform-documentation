@@ -397,6 +397,7 @@ extra:
       name: TikTok
 
 markdown_extensions:
+  - abbr
   - meta
   - markdown.extensions.admonition
   - markdown.extensions.attr_list

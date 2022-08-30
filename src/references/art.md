@@ -51,7 +51,7 @@ To use any of these models, click, and drag one out from the Core Content tab in
 
 ### Community Content
 
-Models, scripts, and whole collections of useful pieces for games can be found in the **Community Content** window. See the [Community Content](community_content.md) reference to learn more about using these models.
+Models, scripts, and whole collections of useful pieces for games can be found in the **Community Content** window. See the [Community Content](../getting_started/community_content.md) reference to learn more about using these models.
 
 ### Materials
 
@@ -73,8 +73,8 @@ To learn how to create and share templates, see the [Template](templates.md) ref
 
 ## Environment Art
 
-See the [Environment Art](environment_art.md) to learn about the Core Terrain Tools.
+See the [Environment Art](../tutorials/environment_art.md) tutorial to learn about the Core Terrain Tools.
 
 ## Visual Effects
 
-See the [Visual Effects](vfx_tutorial.md) tutorial to learn more about using Visual Effects in Core.
+See the [Visual Effects](../tutorials/vfx_tutorial.md) tutorial to learn more about using Visual Effects in Core.

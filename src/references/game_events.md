@@ -16,7 +16,7 @@ tags:
 
 **Game Events** are available to everyone, however, Creators in the Perks Program will have the ability to create more events, and with a longer length.
 
-**Game Events** are different to the [Events API](/api/events.md). The Events API is used for Broadcasting from Lua scripts.
+**Game Events** are different to the [Events API](../api/events.md). The Events API is used for Broadcasting from Lua scripts.
 
 ## Accessing the Events Page
 

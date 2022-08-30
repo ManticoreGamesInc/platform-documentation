@@ -178,7 +178,7 @@ The **Currency** template in **Project Content** can be added to the **Hierarchy
 
 ### Add Currency
 
-**Currency** can be added to your game by dragging out the **Currency** template. This template comes with settings and a UI for a Currency. The settings can be found on the Currency template if you select it in the Hierarchy. The UI can be moved, modified or deleted.
+**Currency** can be added to your game by dragging out the **Currency** template. This template comes with settings and a UI for a Currency. The settings can be found on the Currency template if you select it in the Hierarchy. The UI can be moved, modified, or deleted.
 
 | Property | Description |
 | -------- | ----------- |

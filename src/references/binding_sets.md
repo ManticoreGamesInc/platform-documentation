@@ -80,7 +80,7 @@ Bindings can be networked so the value and input events are replicated to the se
 
 ![!Networked Binding](../img/BindingSets/networked_bindings.png){: .center loading="lazy" }
 
-For information on which events and functions work with networked bindings, see the [Input API](/api/input.md).
+For information on which events and functions work with networked bindings, see the [Input API](../api/input.md).
 
 ### Enable / Disable Bindings
 
@@ -128,7 +128,7 @@ end
 Input.actionPressedEvent:Connect(OnActionPressed)
 ```
 
-See the [Input API](/api/input.md) for all the events and functions.
+See the [Input API](../api/input.md) for all the events and functions.
 
 ## Detecting Input Type
 
@@ -230,4 +230,4 @@ Projects created before **Binding Sets** were added to **Core** can be migrated 
 
 ## Learn More
 
-[Input API](/api/input.md)
+[Input API](../api/input.md)

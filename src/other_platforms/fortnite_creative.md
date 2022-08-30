@@ -86,7 +86,7 @@ To learn about creating teams and organizing projects, see the [Core Collaborati
 
 ## Learn More
 
-### FNC Videos
+### Fortnite Creative Videos
 
 <lite-youtube videoid="99gf9fuLAFI" playlabel="TILTED TOWERS RETURNS.... IN CORE?!"></lite-youtube>
 {: .video-container }
