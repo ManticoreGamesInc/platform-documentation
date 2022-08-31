@@ -26,7 +26,7 @@ In this tutorial, you will learn how to use NFTs (Non-fungible Tokens) as cosmet
 
 ## Using an Existing NFT Collection
 
-This tutorial will use an existing NFT collection that uses the cardboard boxes from **Core Content**. For example, looking at NFT #3 in the collection, we can see it has attributes for **Box** and **Color**. The **Box** attribute is the row index from the data table of templates. This could be your data table of templates that make up how the cosmetic looks.
+This tutorial will use an existing NFT collection that uses the cardboard boxes from **Core Content**. For example, looking at NFT \#3 in the collection, we can see it has attributes for **Box** and **Color**. The **Box** attribute is the row index from the data table of templates. This could be your data table of templates that make up how the cosmetic looks.
 
 [https://opensea.io/collection/core-box-cosmetic](https://opensea.io/collection/core-box-cosmetic)
 
@@ -34,7 +34,7 @@ This tutorial will use an existing NFT collection that uses the cardboard boxes 
 
 ### NFT Token Data Table
 
-Because the NFTs in the collection are lazily minted, there isn't a way to get all NFTs from a collection due to the contract address being a global address for lazy minted NFTs. This means if you try to retrieve NFTs using the contract address, it may return a random NFT created by someone else. The solution to this would be to put your NFTs on the blockchain, but this costs gas.
+Because the NFTs in the collection are lazy minted, there isn't a way to get all NFTs from a collection due to the contract address being a global address for lazy minted NFTs. This means if you try to retrieve NFTs using the contract address, it may return a random NFT created by someone else. The solution to this would be to put your NFTs on the blockchain, but this costs gas.
 
 Another way we can solve this is by having a data table with the collection of NFT Token IDs, and we randomly pick a Token ID from the data table.
 
@@ -64,7 +64,7 @@ Create some cosmetic templates that will be spawned and attached to the player w
 
 When you have created your templates for the boxes, they need to be added to the Cosmetics data table.
 
-![!Rows](../img/NFTCosmetics/cosmetic_rows.png){: .center loading="lazy" }
+![!Rows](../img/NFTCosmetics/cosmetics_rows.png){: .center loading="lazy" }
 
 ## Create Trigger
 
@@ -85,12 +85,13 @@ There are a few ways a loading bar could be done. In this section, we will creat
 
 1. Create a group called `Loading`.
 2. Adding 3D text objects that make up the word `Loading`.
-3. Add a bar below the Loading text by setting the **Z** position to `-50`.
-4. Set the scale of the bar to **X** `4`, **Y** `0.35`, **Z** `0.35`.
-5. Duplicate the bar and rename it to `Progress Bar`.
-6. Set position **Y** to `200`.
-7. Set the rotation **Y** to `-90`.
-8. Set the scale **X** to `0.35`, **Y** to `0.35`, and **Z** to `0`.
+3. Add a bottom aligned cube below the Loading text by setting the **Z** position to `-50`.
+4. Rename the bottom aligned cube to `Bar`.
+5. Set the scale of the bar to **X** `4`, **Y** `0.35`, **Z** `0.35`.
+6. Duplicate the bar and rename it to `Progress Bar`.
+7. Set position **Y** to `200`.
+8. Set the rotation **Y** to `-90`.
+9. Set the scale **X** to `0.35`, **Y** to `0.35`, and **Z** to `0`.
 
 ![!Bar](../img/NFTCosmetics/bar.png){: .center loading="lazy" }
 
@@ -146,7 +147,7 @@ end
 
 ### Fetch NFT Tokens
 
-You need to fetch the NFTs using the Blockchain API. Because all of the NFTs being used are lazily minted, we have to use the contract address from OpenSea which is the same for everyone else who has lazily minted NFTs. It would be recommended to put your NFTs onto the blockchain, but it costs Gas which can be expensive. So this alternative will work for now.
+You need to fetch the NFTs using the Blockchain API. Because all of the NFTs being used are lazy minted, we have to use the contract address from OpenSea which is the same for everyone else who has lazy minted NFTs. It would be recommended to put your NFTs onto the blockchain, but it costs Gas which can be expensive. So this alternative will work for now.
 
 When a token is successfully retrieved, the scale of the `PROGRESS_BAR` is increased based on the total tokens loaded. For each iteration, a wait of 1.6 seconds is done to prevent hitting the rate limits for OpenSea.
 
@@ -282,7 +283,7 @@ end
 
 ### Create OnPlayerLeft Function
 
-Create a function called `OnPlayerLef`. This function will clean up the cosmetic a player may have equipped by looking at the `players` table. If an entry for that player who is leaving the game exist, then the object is destroyed.
+Create a function called `OnPlayerLeft`. This function will clean up the cosmetic a player may have equipped by looking at the `players` table. If an entry for that player who is leaving the game exist, then the object is destroyed.
 
 ```lua
 local function OnPlayerLeft(player)
@@ -295,7 +296,7 @@ end
 
 ### Fetch NFTs
 
-Loop through the cosmetic tokens and load each token. Each token is put into the `tokens` table for later use so you don't need to load them each time. The contract address that is passed to `GetToken` is where the tokens are stored. Because they are lazily minted tokens on OpenSea, the this address will be the same for others, so we need to grab the token by passing in the token id as well.
+Loop through the cosmetic tokens and load each token. Each token is put into the `tokens` table for later use so you don't need to load them each time. The contract address that is passed to `GetToken` is where the tokens are stored. Because they are lazy minted tokens on OpenSea, then this address will be the same for others, so we need to grab the token by passing in the token id as well.
 
 ```lua
 for index, row in ipairs(COSMETIC_TOKENS) do
