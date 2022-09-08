@@ -102,34 +102,53 @@ end
 
 #### Create OnPlayerJoined Function
 
-Create a function called [`OnPlayerJoined`](../api/player.md#events). This function will check to see if there are any tokens in the `collectionTokens` table. If there are none, and the server is currently not in the process of fetching them, it will call `FetchCollectionTokens`. While the tokens are being fetched, the function will be halted until `fetching` is false.
+Create a function called `OnPlayerJoined`. This function will check to see if there are any tokens in the `collectionTokens` table. If there are none, and the server is currently not in the process of fetching them, it will call `FetchCollectionTokens`. While the tokens are being fetched, the function will be halted until `fetching` is false.
 
-The next step to adding to the `lootList` is to also fetch the player's tokens. This can be done using the `GetTokensForPlayer` and passing the player as the first argument.
+The next step is to create a player `lootList` for the player's owned tokens. This can be done using the `GetWalletsForPlayer` and passing the player as the first argument. Once we have the players wallets, we get get the first page of results from each wallet and add each token to the `lootList` table.
 
 Because the tokens need to be part of a single list, the items from the `collectionTokens` can be added to the `lootList`. This will be done for each player that joins the game, they get the collection tokens and their tokens if they own any.
 
 Finally, the `GivePlayerLoot` function is called by passing the `player` and `lootList` as arguments.
 
 ```lua
-local function OnPlayerJoined(player)
-    if #collectionTokens == 0 and not fetching then
-        FetchCollectionTokens()
+    local function OnPlayerJoined(player)
+        if #collectionTokens == 0 and not fetching then
+            FetchCollectionTokens()
+        end
+
+        while fetching do
+            Task.Wait()
+        end
+
+        local lootList = {}
+        local wallets_result, wallets_status, wallets_err = Blockchain.GetWalletsForPlayer(player)
+
+        if wallets_status == BlockchainTokenResultCode.SUCCESS then
+            local wallets = wallets_result:GetResults()
+
+            for wallet_index, wallet in ipairs(wallets) do
+                print("Fetched player wallet:", wallet.address)
+
+                local tokens_result, tokens_status, tokens_err = Blockchain.GetTokensForOwner(wallet.address)
+
+                if tokens_status == BlockchainTokenResultCode.SUCCESS then
+                    local tokens = tokens_result:GetResults()
+
+                    for token_index, token in ipairs(tokens) do
+                        lootList[#lootList + 1] = token
+                    end
+                end
+
+                print("---------")
+            end
+        end
+
+        for index, token in ipairs(collectionTokens) do
+            lootList[#lootList + 1] = token
+        end
+
+        GivePlayerLoot(player, lootList)
     end
-
-    while fetching do
-        Task.Wait()
-    end
-
-    local tokens = Blockchain.GetTokensForPlayer(player)
-
-    local lootList = tokens:GetResults()
-
-    for index, token in ipairs(collectionTokens) do
-        lootList[#lootList + 1] = token
-    end
-
-    GivePlayerLoot(player, lootList)
-end
 ```
 
 #### Connect playerJoinedEvent
@@ -176,9 +195,28 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
             Task.Wait()
         end
 
-        local tokens = Blockchain.GetTokensForPlayer(player)
+        local lootList = {}
+        local wallets_result, wallets_status, wallets_err = Blockchain.GetWalletsForPlayer(player)
 
-        local lootList = tokens:GetResults()
+        if wallets_status == BlockchainTokenResultCode.SUCCESS then
+            local wallets = wallets_result:GetResults()
+
+            for wallet_index, wallet in ipairs(wallets) do
+                print("Fetched player wallet:", wallet.address)
+
+                local tokens_result, tokens_status, tokens_err = Blockchain.GetTokensForOwner(wallet.address)
+
+                if tokens_status == BlockchainTokenResultCode.SUCCESS then
+                    local tokens = tokens_result:GetResults()
+
+                    for token_index, token in ipairs(tokens) do
+                        lootList[#lootList + 1] = token
+                    end
+                end
+
+                print("---------")
+            end
+        end
 
         for index, token in ipairs(collectionTokens) do
             lootList[#lootList + 1] = token
@@ -293,9 +331,28 @@ end
             Task.Wait()
         end
 
-        local tokens = Blockchain.GetTokensForPlayer(player)
+        local lootList = {}
+        local wallets_result, wallets_status, wallets_err = Blockchain.GetWalletsForPlayer(player)
 
-        local lootList = tokens:GetResults()
+        if wallets_status == BlockchainTokenResultCode.SUCCESS then
+            local wallets = wallets_result:GetResults()
+
+            for wallet_index, wallet in ipairs(wallets) do
+                print("Fetched player wallet:", wallet.address)
+
+                local tokens_result, tokens_status, tokens_err = Blockchain.GetTokensForOwner(wallet.address)
+
+                if tokens_status == BlockchainTokenResultCode.SUCCESS then
+                    local tokens = tokens_result:GetResults()
+
+                    for token_index, token in ipairs(tokens) do
+                        lootList[#lootList + 1] = token
+                    end
+                end
+
+                print("---------")
+            end
+        end
 
         for index, token in ipairs(collectionTokens) do
             lootList[#lootList + 1] = token
