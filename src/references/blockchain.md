@@ -70,20 +70,20 @@ Below is an example of how to retrieve player tokens from each wallet they own. 
 
 ```lua
 -- Client context script
-local wallets_result, wallets_status, wallets_err = Blockchain.GetWalletsForPlayer(Game.GetLocalPlayer())
+local walletsResult, walletsStatus, walletsErr = Blockchain.GetWalletsForPlayer(Game.GetLocalPlayer())
 
-if wallets_status == BlockchainTokenResultCode.SUCCESS then
-    local wallets = wallets_result:GetResults()
+if walletsStatus == BlockchainTokenResultCode.SUCCESS then
+    local wallets = walletsResult:GetResults()
 
-    for wallet_index, wallet in ipairs(wallets) do
+    for walletIndex, wallet in ipairs(wallets) do
         print("Fetched player wallet:", wallet.address)
 
-        local tokens_result, tokens_status, tokens_err = Blockchain.GetTokensForOwner(wallet.address)
+        local tokensResult, tokensStatus, tokensErr = Blockchain.GetTokensForOwner(wallet.address)
 
-        if tokens_status == BlockchainTokenResultCode.SUCCESS then
-            local tokens = tokens_result:GetResults()
+        if tokensStatus == BlockchainTokenResultCode.SUCCESS then
+            local tokens = tokensResult:GetResults()
 
-            for token_index, token in ipairs(tokens) do
+            for tokenIndex, token in ipairs(tokens) do
                 print("Token:", token.name, token.description, token.tokenId)
             end
         end
@@ -98,20 +98,20 @@ end
 In the example below, the wallets are fetched for the player. Using `GetTokensForOwner` and passing in an optional table with the property `contractAddress` set. The function will only return tokens that the player owns from a specific collection. In this case, the collection is [Loot Project](https://opensea.io/collection/lootproject)
 
 ```lua
-local wallets_result, wallets_status, wallets_err = Blockchain.GetWalletsForPlayer(Game.GetLocalPlayer())
+local walletsResult, walletsStatus, walletsErr = Blockchain.GetWalletsForPlayer(Game.GetLocalPlayer())
 
-if wallets_status == BlockchainTokenResultCode.SUCCESS then
-    local wallets = wallets_result:GetResults()
+if walletsStatus == BlockchainTokenResultCode.SUCCESS then
+    local wallets = walletsResult:GetResults()
 
-    for wallet_index, wallet in ipairs(wallets) do
+    for walletIndex, wallet in ipairs(wallets) do
         print("Fetched player wallet:", wallet.address)
 
-        local tokens_result, tokens_status, tokens_err = Blockchain.GetTokensForOwner(wallet.address, { contractAddress = "0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7" })
+        local tokensResult, tokensStatus, tokensErr = Blockchain.GetTokensForOwner(wallet.address, { contractAddress = "0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7" })
 
-        if tokens_status == BlockchainTokenResultCode.SUCCESS then
-            local tokens = tokens_result:GetResults()
+        if tokensStatus == BlockchainTokenResultCode.SUCCESS then
+            local tokens = tokensResult:GetResults()
 
-            for token_index, token in ipairs(tokens) do
+            for tokenIndex, token in ipairs(tokens) do
                 print("Token:", token.name, token.description, token.tokenId)
             end
         end
