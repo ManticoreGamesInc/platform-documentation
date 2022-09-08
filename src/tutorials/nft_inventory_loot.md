@@ -121,18 +121,18 @@ Finally, the `GivePlayerLoot` function is called by passing the `player` and `lo
         end
 
         local lootList = {}
-        local wallets_result, wallets_status, wallets_err = Blockchain.GetWalletsForPlayer(player)
+        local walletsResult, walletsStatus, walletsErr = Blockchain.GetWalletsForPlayer(player)
 
-        if wallets_status == BlockchainTokenResultCode.SUCCESS then
-            local wallets = wallets_result:GetResults()
+        if walletsStatus == BlockchainTokenResultCode.SUCCESS then
+            local wallets = walletsResult:GetResults()
 
-            for wallet_index, wallet in ipairs(wallets) do
+            for walletIndex, wallet in ipairs(wallets) do
                 print("Fetched player wallet:", wallet.address)
 
-                local tokens_result, tokens_status, tokens_err = Blockchain.GetTokensForOwner(wallet.address)
+                local tokensResult, tokensStatus, tokensErr = Blockchain.GetTokensForOwner(wallet.address)
 
-                if tokens_status == BlockchainTokenResultCode.SUCCESS then
-                    local tokens = tokens_result:GetResults()
+                if tokensStatus == BlockchainTokenResultCode.SUCCESS then
+                    local tokens = tokensResult:GetResults()
 
                     for token_index, token in ipairs(tokens) do
                         lootList[#lootList + 1] = token
@@ -196,18 +196,18 @@ Game.playerJoinedEvent:Connect(OnPlayerJoined)
         end
 
         local lootList = {}
-        local wallets_result, wallets_status, wallets_err = Blockchain.GetWalletsForPlayer(player)
+        local walletsResult, walletsStatus, walletsErr = Blockchain.GetWalletsForPlayer(player)
 
-        if wallets_status == BlockchainTokenResultCode.SUCCESS then
-            local wallets = wallets_result:GetResults()
+        if walletsStatus == BlockchainTokenResultCode.SUCCESS then
+            local wallets = walletsResult:GetResults()
 
-            for wallet_index, wallet in ipairs(wallets) do
+            for walletIndex, wallet in ipairs(wallets) do
                 print("Fetched player wallet:", wallet.address)
 
-                local tokens_result, tokens_status, tokens_err = Blockchain.GetTokensForOwner(wallet.address)
+                local tokensResult, tokensStatus, tokensErr = Blockchain.GetTokensForOwner(wallet.address)
 
-                if tokens_status == BlockchainTokenResultCode.SUCCESS then
-                    local tokens = tokens_result:GetResults()
+                if tokensStatus == BlockchainTokenResultCode.SUCCESS then
+                    local tokens = tokensResult:GetResults()
 
                     for token_index, token in ipairs(tokens) do
                         lootList[#lootList + 1] = token
@@ -332,18 +332,18 @@ end
         end
 
         local lootList = {}
-        local wallets_result, wallets_status, wallets_err = Blockchain.GetWalletsForPlayer(player)
+        local walletsResult, walletsStatus, walletsErr = Blockchain.GetWalletsForPlayer(player)
 
-        if wallets_status == BlockchainTokenResultCode.SUCCESS then
-            local wallets = wallets_result:GetResults()
+        if walletsStatus == BlockchainTokenResultCode.SUCCESS then
+            local wallets = walletsResult:GetResults()
 
-            for wallet_index, wallet in ipairs(wallets) do
+            for walletIndex, wallet in ipairs(wallets) do
                 print("Fetched player wallet:", wallet.address)
 
-                local tokens_result, tokens_status, tokens_err = Blockchain.GetTokensForOwner(wallet.address)
+                local tokensResult, tokensStatus, tokensErr = Blockchain.GetTokensForOwner(wallet.address)
 
-                if tokens_status == BlockchainTokenResultCode.SUCCESS then
-                    local tokens = tokens_result:GetResults()
+                if tokensStatus == BlockchainTokenResultCode.SUCCESS then
+                    local tokens = tokensResult:GetResults()
 
                     for token_index, token in ipairs(tokens) do
                         lootList[#lootList + 1] = token
