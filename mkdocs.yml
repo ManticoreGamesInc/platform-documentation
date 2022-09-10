@@ -186,6 +186,8 @@ nav:
           - BlockchainToken: api/blockchaintoken.md
           - BlockchainTokenAttribute: api/blockchaintokenattribute.md
           - BlockchainTokenCollection: api/blockchaintokencollection.md
+          - BlockchainWallet: api/blockchainwallet.md
+          - BlockchainWalletCollection: api/blockchainwalletcollection.md
           - Box: api/box.md
           - Camera: api/camera.md
           - CameraCapture: api/cameracapture.md

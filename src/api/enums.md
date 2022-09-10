@@ -44,6 +44,13 @@ tags:
 | `BlockchainTokenResultCode.SUCCESS` | `0` | Data was successfully retrieved. |
 | `BlockchainTokenResultCode.FAILURE` | `1` | An error occurred while retrieving data. Additional specific failure codes may be added in the future, so it is recommended to check for `SUCCESS` when determining whether an operation succeeded or failed. |
 
+## BlockchainWalletResultCode
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `BlockchainWalletResultCode.SUCCESS` | `0` | Data was successfully retrieved. |
+| `BlockchainWalletResultCode.FAILURE` | `1` | An error occurred while retrieving data. Additional specific failure codes may be added in the future, so it is recommended to check for `SUCCESS` when determining whether an operation succeeded or failed. |
+
 ## BroadcastEventResultCode
 
 | Enum Name | Value | Description |

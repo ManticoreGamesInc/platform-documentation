@@ -36,12 +36,12 @@ Example using:
 
 ```lua
 function CoinFlipChecker(speaker, params)
-local message = string.lower(params.message)
-if message == "/coinflip" then
-    local result = "heads"
-    if math.random() > 0.5 then result = "tails" end
-    Chat.BroadcastMessage(string.format("%s flipped a coin, and it came up %s!", speaker.name, result))
-end
+    local message = string.lower(params.message)
+    if message == "/coinflip" then
+        local result = "heads"
+        if math.random() > 0.5 then result = "tails" end
+        Chat.BroadcastMessage(string.format("%s flipped a coin, and it came up %s!", speaker.name, result))
+    end
 end
 
 Chat.receiveMessageHook:Connect(CoinFlipChecker)
