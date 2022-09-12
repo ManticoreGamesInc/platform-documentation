@@ -34,7 +34,7 @@ NFTs can have properties that can be read using the Blockchain API. These are ca
 
 ### Cosmetics
 
-Cosmetics are very popular in games, and being able to own unique cosmetics is a great way for players to collect them and show off. Imagine cosmetic hats that players wear in-game, but the player owns the item they are wearing because they own the NFT for it. They would be the only player to own that hat because it is one of a kind. It is unique. The only way other players could own the hat would be to purchase it from the player who currently owns it.
+Cosmetics are very popular in games, and being able to own unique cosmetics is a great way for players to collect them and show them off. Imagine cosmetic hats that players wear in-game, but the player owns the item they are wearing because they own the NFT for it. They would be the only player to own that hat because it is one of a kind. It is unique. The only way other players could own the hat would be to purchase it from the player who currently owns it.
 
 ## What is an NFT?
 
@@ -64,33 +64,60 @@ MetaMask is a software cryptocurrency wallet used to interact with the Ethereum 
 
 The Blockchain API provides various ways for creators to retrieve information about NFTs, contracts, and collections. For example, if creators want to retrieve the NFTs owned by the player to create a different experience based on that player's owned NFTs, then this can easily be done using the API.
 
-### Fetching Player Owned NFTs
+### Fetching Player-Owned NFTs
 
-Below is an example of how easy it is to retrieve some of a player's tokens. The `GetTokensForPlayer` function requires the player to be passed in. It will then request one page of results and return them as an array. When a request is made, the script will yield until it has finished.
+Below is an example of how to retrieve player tokens from each wallet they own. First, the player's wallets are fetched which can be iterated through. Calling `GetTokensForOwner` will fetch all the NFTs for each wallet. This allows creators to filter for NFTs within a specific collection if necessary.
 
 ```lua
-local tokens = Blockchain.GetTokensForPlayer(player)
-local results = tokens:GetResults()
+-- Client context script
+local walletsResult, walletsStatus, walletsErr = Blockchain.GetWalletsForPlayer(Game.GetLocalPlayer())
 
-for index, token in ipairs(results) do
-    print(token.name)
+if walletsStatus == BlockchainTokenResultCode.SUCCESS then
+    local wallets = walletsResult:GetResults()
+
+    for walletIndex, wallet in ipairs(wallets) do
+        print("Fetched player wallet:", wallet.address)
+
+        local tokensResult, tokensStatus, tokensErr = Blockchain.GetTokensForOwner(wallet.address)
+
+        if tokensStatus == BlockchainTokenResultCode.SUCCESS then
+            local tokens = tokensResult:GetResults()
+
+            for tokenIndex, token in ipairs(tokens) do
+                print("Token:", token.name, token.description, token.tokenId)
+            end
+        end
+
+        print("---------")
+    end
 end
 ```
 
-### Fetching a Collection of NFTs
+---
 
-A collection of NFTs could be a collection that creators have listed on the [OpenSea](https://opensea.io) marketplace themselves. For example, they could be collectibles that players can collect, and those that own them can display them in the game to other players.
-
-Fetching a collection is very easy. Using the `GetTokens` function and passing in the contract address for the collection will return the first page of results. More results can be fetched using the API.
-
-In the example below, a list of tokens from the [MekaVerse](https://opensea.io/collection/mekaverse) collection is used.
+In the example below, the wallets are fetched for the player. Using `GetTokensForOwner` and passing in an optional table with the property `contractAddress` set. The function will only return tokens that the player owns from a specific collection. In this case, the collection is [Loot Project](https://opensea.io/collection/lootproject)
 
 ```lua
-local tokens = Blockchain.GetTokens("0x9a534628b4062e123ce7ee2222ec20b86e16ca8f")
-local results = tokens:GetResults()
+local walletsResult, walletsStatus, walletsErr = Blockchain.GetWalletsForPlayer(Game.GetLocalPlayer())
 
-for index, token in ipairs(results) do
-    print(token.name)
+if walletsStatus == BlockchainTokenResultCode.SUCCESS then
+    local wallets = walletsResult:GetResults()
+
+    for walletIndex, wallet in ipairs(wallets) do
+        print("Fetched player wallet:", wallet.address)
+
+        local tokensResult, tokensStatus, tokensErr = Blockchain.GetTokensForOwner(wallet.address, { contractAddress = "0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7" })
+
+        if tokensStatus == BlockchainTokenResultCode.SUCCESS then
+            local tokens = tokensResult:GetResults()
+
+            for tokenIndex, token in ipairs(tokens) do
+                print("Token:", token.name, token.description, token.tokenId)
+            end
+        end
+
+        print("---------")
+    end
 end
 ```
 

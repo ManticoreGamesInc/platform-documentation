@@ -210,7 +210,7 @@ You can continue using these techniques to complete the appearance of your Death
 ![FinishArt](../img/MyFirstMultiplayer/FinishArt.jpg){: .center loading="lazy" }
 
 !!! info
-    You can customize materials and how they apply to objects. Learn more in the [Custom Material Tutorial](materials.md).
+    You can customize materials and how they apply to objects. Learn more in the [Custom Material Tutorial](../references/materials.md).
 
 ## Customizing Gameplay
 
@@ -262,7 +262,7 @@ Let's move the "Player Start" where players spawn to be further apart. Press ++V
 ![PlayerSpawn](../img/MyFirstMultiplayer/PlayerSpawn.jpg){: .center loading="lazy" }
 
 !!! tip
-    Press ++0++ to create a spawn point at your cursor's location. There are more [Editor Shortcuts](editor_keybindings.md) that can streamline your game creation flow.
+    Press ++0++ to create a spawn point at your cursor's location. There are more [Editor Shortcuts](../references/editor_keybindings.md) that can streamline your game creation flow.
 
 ## Publishing a Game
 
@@ -270,4 +270,4 @@ You now have a complete and unique deathmatch-style game. If you are ready to te
 
 ## Next Steps
 
-[Publish a Game](publishing.md) | [Terrain Tutorial](environment_art.md) | [Basic Weapon Tutorial](weapons.md) | [Abilities Tutorial](ability_tutorial.md)
+[Publish a Game](publishing.md) | [Terrain Tutorial](../tutorials/environment_art.md) | [Basic Weapon Tutorial](../references/weapons.md) | [Abilities Tutorial](../tutorials/ability_tutorial.md)

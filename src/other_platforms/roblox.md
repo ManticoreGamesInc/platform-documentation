@@ -12,7 +12,7 @@ tags:
 
 The purpose of this page is to let experienced game developers get started using the unique features of the Core platform.
 
-- For a general introduction to creating with Core, see [Intro to the Core Editor](editor_intro.md)
+- For a general introduction to creating with Core, see [Intro to the Core Editor](../getting_started/editor_intro.md)
 - For a complete technical overview, see the [Core API Documentation](../api/index.md).
 
 ## Roblox
@@ -29,7 +29,7 @@ Editor controls are very similar to Roblox, and most keyboard shortcuts are the 
 
 ### Collaboration
 
-Game files are stored locally on your machine, usually under ``Documents/My Games/Core/Saved/Maps``. This means that you can use conventional version control, like git, and Core files are small enough to also be shared through cloud drives.
+Game files are stored locally on your machine, usually under `Documents/My Games/Core/Saved/Maps`. This means that you can use conventional version control, like git, and Core files are small enough to also be shared through cloud drives.
 
 Published Core games can also be marked as editable, allowing others to customize and modify them, and many successful Core Games are available to use as starting points.
 

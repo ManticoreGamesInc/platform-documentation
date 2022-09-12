@@ -77,7 +77,7 @@ Gatherables can be created from any of the Gatherable Examples, but the **Gather
 
 ### Change Gatherable Respawn Properties
 
-Gatherables are most performant when they are together in a single gatherable group, which is possible as long as the share the same respawn characteristics listed in the [**Properties**](#properties) section.
+Gatherables are most performant when they are together in a single gatherable group, which is possible as long as the share the same respawn characteristics listed in the [**Properties**](#respawn-properties) section.
 
 1. Open the **Gatherable Cube** template group and find the **StaticContext (Open Me)** folder.
 2. In the **StaticContext (Open Me)** folder, select the **Gatherables Group (Open Me)** group.
@@ -178,7 +178,7 @@ The **Currency** template in **Project Content** can be added to the **Hierarchy
 
 ### Add Currency
 
-**Currency** can be added to your game by dragging out the **Currency** template. This template comes with settings and a UI for a Currency. The settings can be found on the Currency template if you select it in the Hierarchy. The UI can be moved, modified or deleted.
+**Currency** can be added to your game by dragging out the **Currency** template. This template comes with settings and a UI for a Currency. The settings can be found on the Currency template if you select it in the Hierarchy. The UI can be moved, modified, or deleted.
 
 | Property | Description |
 | -------- | ----------- |

@@ -68,4 +68,4 @@ To start a game from a community framework, open the **Create** menu of the Core
 
 ## Learn More
 
-[Templates](../references/templates.md) | [Complex Models](modeling.md) | [Publishing](publishing.md)
+[Templates](../references/templates.md) | [Complex Models](../references/modeling.md) | [Publishing](publishing.md)

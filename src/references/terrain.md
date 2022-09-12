@@ -110,7 +110,7 @@ The **Height Offset** setting in the **IMPORT TERRAIN HEIGHTMAP** window determi
 
 ![Height Settings](../img/TerrainReference/HeightSettings.png){: .center loading="lazy" }
 
-Clicking on the ![load file icon](../img/TerrainReference/ImportIcon.png)import file icon next to the **Heightmap** field will open a **File Explorer** window open in which any `.png` files can be selected from your computer. The **Import** button will generate a new terrain object using the **Heightmap**, **Weightmap**, **Voxel Size**, **Height Multiplier**, and **Height Offset** settings from the **IMPORT TERRAIN HEIGHTMAP** window. The [Weightmap](#Weightmaps) setting will be explained later in this reference.
+Clicking on the ![load file icon](../img/TerrainReference/ImportIcon.png) import file icon next to the **Heightmap** field will open a **File Explorer** window open in which any `.png` files can be selected from your computer. The **Import** button will generate a new terrain object using the **Heightmap**, **Weightmap**, **Voxel Size**, **Height Multiplier**, and **Height Offset** settings from the **IMPORT TERRAIN HEIGHTMAP** window. The [Weightmap](#weightmaps) setting will be explained later in this reference.
 {: .image-inline-text .image-background }
 
 ![Import Heightmap File](../img/TerrainReference/ImportHeightmapIcon.png){: .center loading="lazy" }
@@ -299,7 +299,7 @@ The strength of materials is even more so visible by using the **Debug Mode** in
 
 ![Enable Debug Mode](../img/TerrainReference/EnableDebugMode.png){: .center loading="lazy" }
 
-Below is the side by side comparison of the **Food Corn 01** at 100% and the **Food Corn 01** material at 50%. Since the **Bricks Worn Stone 01** material is the *first* terrain material, the **Bricks Worn Stone 01** material appears as the color **red**{: .Color_RED }. Since the **Food Corn 01** material is the_second_terrain material, the **Food Corn 01** material appears as the color **green**{: .Color_GREEN }. The reasoning for these colorings will be further covered in the [Weightmaps](#Weightmaps) section. On the right side, the terrain is 50% **Food Corn 01** material and 50% **Bricks Worn Stone 01** causing it to appear a mix of **green**{: .Color_GREEN } and **red**{: .Color_RED } which is a **yellow**{: style="color:#D6D13E" } color.
+Below is the side by side comparison of the **Food Corn 01** at 100% and the **Food Corn 01** material at 50%. Since the **Bricks Worn Stone 01** material is the *first* terrain material, the **Bricks Worn Stone 01** material appears as the color **red**{: .Color_RED }. Since the **Food Corn 01** material is the_second_terrain material, the **Food Corn 01** material appears as the color **green**{: .Color_GREEN }. The reasoning for these colorings will be further covered in the [Weightmaps](#weightmaps) section. On the right side, the terrain is 50% **Food Corn 01** material and 50% **Bricks Worn Stone 01** causing it to appear a mix of **green**{: .Color_GREEN } and **red**{: .Color_RED } which is a **yellow**{: style="color:#D6D13E" } color.
 
 ![Terrain Debug Mode](../img/TerrainReference/DebugModeExample.png){: .center loading="lazy" }
 

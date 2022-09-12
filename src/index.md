@@ -11,12 +11,17 @@ hide:
 Welcome to the official documentation for Core Editor, the all-in-one metaverse platform that allows you to create online worlds, special interactive chatrooms, live parties, concerts, expos, or pretty much anything else you can imagine.
 
 ## Core Features
-
+<!-- vale Google.Acronyms = NO -->
 - **One-click publishing**: Launch and share an experience with the push of a button.
 - **Persistent cross-world identities**: Players can enter the experiences you build with their own customized avatars, mounts, and emotes.
 - **Community collaboration**: Bolster your creation with objects, scripts, and games shared by other Core Creators.
 - **AAA-quality development tools**: VFX, audio, materials, textures, skyboxes, terrain sculpting, heightmaps, scripting, and an expansive list of features in the works, all powered by Unreal Engine.
 - **Web3 integration**: Create immersive multiplayer content based on NFT collections, smart contract metadata, and the connected wallets of your community members.
+
+*[AAA]: In the video-game industry, AAA (pronounced and sometimes written triple-A) is an informal classification used to categorise games produced and distributed by a mid-sized or major publisher, which typically have higher development and marketing budgets than other tiers of games.
+*[NFT]: A non-fungible token (NFT) is a financial security consisting of digital data stored in a blockchain, a form of distributed ledger.
+
+<!-- vale Google.Acronyms = YES -->
 
 ### Ready to get started? [Create your first game](getting_started/start.md)
 

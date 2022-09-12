@@ -26,7 +26,7 @@ If you're fresh and new to any kind of programming, it would be good to visit th
 </div>
 
 * **Completion Time:** ~30 minutes
-* **Knowledge Level:** No knowledge *absolutely* required, but would be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** and completion of the first **[Weapons](weapons.md)** tutorial
+* **Knowledge Level:** No knowledge *absolutely* required, but would be easier to understand with a grasp on **[Lua](lua_basics_lightbulb.md)** and completion of the first **[Weapons](weapons_tutorial.md)** tutorial
 * **Skills you will learn:**
     * How the Ability system works behind-the-scenes
     * How to program abilities
@@ -36,7 +36,7 @@ If you're fresh and new to any kind of programming, it would be good to visit th
 
 ---
 
-Before doing this tutorial, make sure you've already gone through the **[Ability](ability_tutorial.md)** tutorial and the **[Weapon](weapons.md)** tutorial to understand the basics of how these things work.
+Before doing this tutorial, make sure you've already gone through the **[Ability](ability_tutorial.md)** tutorial and the **[Weapon](../references/weapons.md)** tutorial to understand the basics of how these things work.
 
 We're going to be making a more complex `weapon` that utilizes scripting, and has multiple abilities.
 
@@ -110,7 +110,7 @@ To begin, let's set up the look of the fire staff and create our weapon object. 
 
 3. Just like in the first weapon tutorial, we are going to create a Client Context folder within the weapon to hold the model of the staff.
 
-    You can combine shapes in whatever way you like with the help of an **[Art Tutorial](modeling_basics.md)** or **[Reference](art.md)**.
+    You can combine shapes in whatever way you like with the help of an **[Art Tutorial](modeling_basics.md)** or **[Reference](../references/art.md)**.
 
     Make sure to turn off the collision of the art group that you make, so that the camera doesn't get stuck on it when it is equipped.
 
@@ -132,7 +132,7 @@ Since we're making a magic staff and not a typical gun, we get to change the ani
 
 ### Explosive Visual Effects
 
-Use the **[VFX section](weapons.md#adding-visual-effects)** of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff--the most impactful sections of the weapon to change are:
+Use the **[VFX section](weapons_tutorial.md#adding-visual-effects)** of the simple weapon tutorial to create cool VFX for your weapon, and lean into fire themes to match the look of this fire staff--the most impactful sections of the weapon to change are:
 
 1. The **Muzzle Flash Template**
 

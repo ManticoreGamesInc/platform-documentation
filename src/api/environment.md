@@ -126,7 +126,7 @@ Example using:
 
 ### `IsSinglePlayerPreview`
 
-We may want to press a key to display some UI. However, in single-player preview mode, The [Tab] key pauses the simulation. In this example, we assign [Tab] to display the scoreboard. On each action the `Environment` is checked, to see if it is single-player preview, in which case [Caps Lock] is used instead of [Tab].
+We may want to press a key to display some UI. However, in single-player preview mode, The ++tab++ key pauses the simulation. In this example, we assign ++tab++ to display the scoreboard. On each action the `Environment` is checked, to see if it is single-player preview, in which case ++caps-lock++ is used instead of ++tab++.
 
 ```lua
 local CAPS_LOCK_ACTION = script:GetCustomProperty("CapsLockAction")

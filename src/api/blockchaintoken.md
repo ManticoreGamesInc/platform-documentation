@@ -119,11 +119,22 @@ local NON_HOLDER_TEAM = 1
 
 -- Given a player and an NFT collection, check if the player owns a token
 function DoesPlayerOwnFromContract(player, contractAddress)
-    local playerCollection = Blockchain.GetTokensForPlayer(player, { contractAddress = contractAddress })
-    local tokens = playerCollection:GetResults()
+    local walletsResult, walletsStatus, walletsErr = Blockchain.GetWalletsForPlayer(player)
 
-    if #tokens > 0 then
-        return true
+    if walletsStatus == BlockchainTokenResultCode.SUCCESS then
+        local wallets = walletsResult:GetResults()
+
+        for walletIndex, wallet in ipairs(wallets) do
+            local tokensResult, tokensStatus, tokensErr = Blockchain.GetTokensForOwner(wallet.address)
+
+            if tokensStatus == BlockchainTokenResultCode.SUCCESS then
+                local tokens = tokensResult:GetResults()
+
+                if #tokens > 0 then
+                    return true
+                end
+            end
+        end
     end
 
     return false
@@ -148,7 +159,7 @@ end
 Game.playerJoinedEvent:Connect(OnPlayerJoined)
 ```
 
-See also: [Blockchain.GetTokensForPlayer](blockchain.md) | [BlockchainTokenCollection.GetResults](blockchaintokencollection.md) | [Game.playerJoinedEvent](game.md) | [Player.team](player.md)
+See also: [Blockchain.GetWalletsForPlayer](blockchain.md) | [BlockchainTokenCollection.GetResults](blockchaintokencollection.md) | [Game.playerJoinedEvent](game.md) | [Player.team](player.md)
 
 ---
 

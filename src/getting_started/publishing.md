@@ -62,4 +62,4 @@ Your game is now live. Visit your game's page in the Core **Games** tab to try i
 
 ## Learn More
 
-[Publishing Checklist](publishing_checklist.md) | [Sharing Templates](templates.md)
+[Publishing Checklist](publishing_checklist.md) | [Sharing Templates](../references/templates.md)
