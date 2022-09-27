@@ -16,7 +16,7 @@ Metadata about a player's blockchain wallet.
 | Property Name | Return Type | Description | Tags |
 | -------- | ----------- | ----------- | ---- |
 | `address` | `string` | The wallet address. | Read-Only |
-| `isPreferred` | `boolean` | Returns `true` is this is the owner's preferred wallet, otherwise `false`. | Read-Only |
+| `isPreferred` | `boolean` | Returns `true` if this is the owner's preferred wallet, otherwise `false`. | Read-Only |
 
 ## Learn More
 

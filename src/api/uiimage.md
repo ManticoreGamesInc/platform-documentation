@@ -20,6 +20,7 @@ A UIControl for displaying an image. Inherits from [UIControl](uicontrol.md).
 | `shouldClipToSize` | `boolean` | Whether or not the image and its shadow should be clipped when exceeding the bounds of this control. | Read-Write |
 | `isFlippedHorizontal` | `boolean` | Whether or not the image is flipped horizontally. | Read-Write |
 | `isFlippedVertical` | `boolean` | Whether or not the image is flipped vertically. | Read-Write |
+| `sourceImageAspectRatio` | `number` | The aspect ratio of the image. | Read-Only |
 | `isHittable` | `boolean` | When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it. | Read-Write |
 
 ## Functions
@@ -31,6 +32,7 @@ A UIControl for displaying an image. Inherits from [UIControl](uicontrol.md).
 | `GetShadowColor()` | [`Color`](color.md) | Returns the color of the image's drop shadow. | None |
 | `SetShadowColor(Color)` | `None` | Sets the color of the image's drop shadow. | None |
 | `GetShadowOffset()` | [`Vector2`](vector2.md) | Returns the offset of the image's drop shadow in UI space. | None |
+| `GetSourceImageSize()` | [`Vector2`](vector2.md) | Returns the size of the image. | None |
 | `SetShadowOffset(Vector2)` | `None` | Sets the offset of the image's drop shadow in UI space. | None |
 | `GetImage()` | `string` | Returns the `imageId` assigned to this UIImage control. **Note:** As of 1.0.211, this function returns `nil` instead of `"0BADBADBADBADBAD"` when no image asset has been set. | **Breaking-Change** |
 | `SetImage(string imageId)` | `None` | Sets the UIImage to a new image asset ID. You can get this ID from an Asset Reference. | None |
