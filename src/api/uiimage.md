@@ -243,6 +243,29 @@ See also: [UI.PrintToScreen](ui.md) | [Event.Connect](event.md) | [UIImage.isHit
 
 Example using:
 
+### `GetSourceImageSize`
+
+In this example we can set the width and height of an image to the source image size of the blockchain token. This allows for the image to be at the correct width, height, and aspect ratio.
+
+```lua
+-- Client Script
+local UI_IMAGE = script:GetCustomProperty("UIImage"):WaitForObject()
+local token = Blockchain.GetToken("0x950599037fe15c5a6499506c1fad5cf91457ef62", "1")
+
+UI_IMAGE:SetBlockchainToken(token)
+
+local size = UI_IMAGE:GetSourceImageSize()
+
+UI_IMAGE.width = size.x
+UI_IMAGE.height = size.y
+```
+
+See also: [script.GetCustomProperty](script.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Blockchain.GetToken](blockchain.md) | [UIImage.SetBlockchainToken](uiimage.md)
+
+---
+
+Example using:
+
 ### `SetBlockchainToken`
 
 MekaVerse is an NFT collection with 8,888 unique mechas. The following example shows how to remotely load the image for Meka #1. The script sits in the hierarchy as a child of a `UI Image`, which is used for visualizing the NFT's artwork.
@@ -421,6 +444,30 @@ end
 ```
 
 See also: [CoreObject.GetCustomProperty](coreobject.md)
+
+---
+
+Example using:
+
+### `sourceImageAspectRatio`
+
+In this example we can work out what the height of the image needs to be based on the aspect ratio given to us from the property `sourceImageAspectRatio`. This allows images such as Blockchain images to be scaled with the correct aspect ratio using a specific width set in the properties window for the UI Image. The same can be done for the width by doing `UI_IMAGE.height * ratio`.
+
+```lua
+-- Client Script
+local UI_IMAGE = script:GetCustomProperty("UIImage"):WaitForObject()
+local token = Blockchain.GetToken("0x950599037fe15c5a6499506c1fad5cf91457ef62", "1")
+
+UI_IMAGE:SetBlockchainToken(token)
+
+-- Get the source image aspect radio (0.8125 for the token image).
+local ratio = UI_IMAGE.sourceImageAspectRatio
+
+-- Work out the height based on the width of the image.
+UI_IMAGE.height = math.floor(UI_IMAGE.width / ratio)
+```
+
+See also: [script.GetCustomProperty](script.md) | [CoreObjectReference.WaitForObject](coreobjectreference.md) | [Blockchain.GetToken](blockchain.md) | [UIImage.SetBlockchainToken](uiimage.md)
 
 ---
 
