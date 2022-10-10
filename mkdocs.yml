@@ -443,7 +443,6 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
   - full_yaml_metadata
-  - lightgallery
 
 plugins:
   - search
@@ -464,6 +463,7 @@ plugins:
   - minify:
       minify_html: !ENV MKDOCS_MINIFY
   - git-revision-date-localized
+  - glightbox
   - redirects:
       redirect_maps:
         tutorials/index.md: getting_started/start.md
