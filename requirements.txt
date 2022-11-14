@@ -6,7 +6,7 @@ mkdocs-material-extensions==1.1
 mkdocs-redirects==1.2.0
 mkdocs==1.4.2
 pygments==2.13.0
-pymdown-extensions==9.7
+pymdown-extensions==9.8
 mkdocs-static-i18n==0.50
 mkdocs-minify-plugin==0.5.0
 mkdocs-meta-descriptions-plugin==2.1.0
