@@ -460,6 +460,7 @@ Sockets are different points on an animated and player's character mesh. They ca
 | `unarmed_roll` | A roll in place animation, animated_mesh movement during this animation's playback needs to be hand-authored. |  | `rightFootstep, leftFootstep` | `animatedMesh` |
 | `unarmed_salute` | A militant display of respect. |  | `action` | `animatedMesh` |
 | `unarmed_scared` | A fearful response to a startling situation. |  | `action` | `animatedMesh` |
+| `unarmed_shiver` | A looping shiver animation. |  | `action` | `animatedMesh` |
 | `unarmed_shiver` | A looping shiver animation. |  |  | `animatedMesh` |
 | `unarmed_shout` | An animation that begins with the character shouting at the sky during cast loop, and then directs a shout forward in the execute phase portion of the animation.  For Players, "unarmed_shout" is an Ability Animation. Please refer to that section of this page for more information. |  | `action, rightFootstep` | `animatedMesh` |
 | `unarmed_shrug` | An animation expressing dubiousness or unenthusiasm. |  | `action` | `animatedMesh` |
