@@ -1,8 +1,8 @@
 {
-	"recommendations": [
-		"EditorConfig.EditorConfig",
+    "recommendations": [
+        "EditorConfig.EditorConfig",
         "jebbs.markdown-extended",
         "davidanson.vscode-markdownlint",
         "streetsidesoftware.code-spell-checker"
-	]
+    ]
 }

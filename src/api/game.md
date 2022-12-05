@@ -540,6 +540,39 @@ See also: [Player.team](player.md) | [Game.GetPlayers](game.md) | [Event.Connect
 
 Example using:
 
+### `postCameraUpdateEvent`
+
+In this example, the postCameraUpdateEvent is used over a Tick function as it allows Lua code to run after the camera is updated, which removes the lag from UI elements being positioned to a world location.
+
+```lua
+-- Client context script
+local TARGET = script:GetCustomProperty("Target"):WaitForObject()
+local IMAGE = script:GetCustomProperty("Image"):WaitForObject()
+
+local function UpdateImage()
+    local pos = UI.GetScreenPosition(TARGET:GetWorldPosition())
+
+    IMAGE.x = pos.x
+    IMAGE.y = pos.y
+end
+
+-- Uncomment the below code and comment out the postCameraUpdateEvent line to see
+-- the difference between the Tick updating the UI compared to the post camera event.
+--[[
+function Tick()
+    UpdateImage()
+end
+--]]
+
+Game.postCameraUpdateEvent:Connect(UpdateImage)
+```
+
+See also: [CoreObjectReference.GetWorldPosition](coreobjectreference.md) | [UI.GetScreenPosition](ui.md) | [CoreObject.GetCustomProperty](coreobject.md) | [Event.Connect](event.md)
+
+---
+
+Example using:
+
 ### `roundEndEvent`
 
 Several operations need to be made when rounds start and end. In this example, when the game ends it transitions to a "round ended" state for three seconds, then respawns all players to spawn points. The advantage of using events is that the different scripts can be separated from each other to improve organization of the project. The condition for ending the round is set here as one team reaching 5 points and can be located in one script. Meanwhile the various outcomes/cleanups can be broken up into different scripts in a way that makes the most sense per game, all listening to the `roundEndEvent`.
