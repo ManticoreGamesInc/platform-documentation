@@ -6,8 +6,6 @@ tags:
   - Reference
 ---
 
-<!--@TODO: Add more Learn more links (i.e, tutorial) -->
-
 # UI Text Entry Box
 
 ## Overview
@@ -34,7 +32,7 @@ There are many use cases as to why creators would want to provide a text field f
 
 - Text Adventure Games
 
-    Text-based adventure games that allow players to enter commands to move through the world.
+    Text-based adventure games allow players to enter commands to move through the world.
 
 - Command Panel
 
@@ -58,7 +56,7 @@ When right-clicking in the **Hierarchy**, creators can filter the menu and find 
 
 #### Properties
 
-Below are some of the properties for the **UI Text Entry Box**. Other properties not listed are similar to other controls (for example, font color, size, dock, visibility).
+Below are some of the properties for the **UI Text Entry Box**. Other properties not listed are similar to other controls (for example, font color, size, dock, and visibility).
 
 | Property | Description |
 | -------- | ----------- |
@@ -82,7 +80,7 @@ When not being interacted with, the UI text entry box object is in its backgroun
 
 #### API
 
-The **UI Text Entry Box** has an API that can be used to change various properties and get property information. Two useful events can be used to detect any text changed and also detect when the text has been committed.
+The **UI Text Entry Box** has an API that can be used to change various properties and get property information. Two useful events can be used to detect any text changes and also detect when the text has been committed.
 
 Below is an example of how to check the changed text as the user is typing, and also when the text has been committed. The committed text means the player has pressed enter (multiline is off), or they have unfocused the text box by clicking outside of it.
 
