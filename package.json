@@ -41,7 +41,7 @@
         "@attilagyongyosi/path-linter": "^2.1.5",
         "eslint": "^8.31.0",
         "eslint-config-airbnb-base": "^15.0.0",
-        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-import": "^2.27.4",
         "eslint-plugin-prettier": "^4.2.1",
         "lite-youtube-embed": "^0.2.0",
         "markdownlint-cli2": "^0.6.0",
