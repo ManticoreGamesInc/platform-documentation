@@ -102,10 +102,10 @@ tags:
 | Toggle Grid Snapping       | ++G++                   | Enables or Disables Objects Snapping to Grid | None                       |
 | Decrease Move Snap         | ++open-bracket++        | Decrease Grid Snap Scale for Move Tool       | None                       |
 | Increase Move Snap         | ++close-bracket++       | Increase Grid Snap Scale for Move Tool       | None                       |
-| Decrease Rotate Snap       | ++shift+open-bracket++  | Decrease Grid Snap Scale for Rotate Tool     | None                       |
-| Increase Rotate Snap       | ++shift+close-bracket++ | Increase Grid Snap Scale for Rotate Tool     | None                       |
-| Decrease Scale Snap        | ++ctrl+open-bracket++   | Decrease Grid Snap Scale for Scale Tool      | None                       |
-| Increase Scale Snap        | ++ctrl+close-bracket++  | Increase Grid Snap Scale for Scale Tool      | None                       |
+| Decrease Rotate Snap       | ++open-bracket++  | Decrease Grid Snap Scale for Rotate Tool     | None                       |
+| Increase Rotate Snap       | ++close-bracket++ | Increase Grid Snap Scale for Rotate Tool     | None                       |
+| Decrease Scale Snap        | ++open-bracket++   | Decrease Grid Snap Scale for Scale Tool      | None                       |
+| Increase Scale Snap        | ++close-bracket++  | Increase Grid Snap Scale for Scale Tool      | None                       |
 | Toggle World / Local Space | ++T++                   | Toggles Between Local and World Space        | None                       |
 
 ## Editor Misc

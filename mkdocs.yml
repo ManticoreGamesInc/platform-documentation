@@ -122,6 +122,7 @@ nav:
           - Core for Game Jams: references/global_game_jam.md
           - Abilities: tutorials/ability_tutorial.md
           - AI Activities: tutorials/ai_activity_tutorial.md
+          - Boss Fight: tutorials/boss_tutorial.md
           - Camera Captures: tutorials/camera_capture_basics.md
           - Chat Commands: tutorials/chat_commands_tutorial.md
           - Chat Hooks: tutorials/chat_tutorial.md
@@ -130,7 +131,6 @@ nav:
           - Cosmetic System: tutorials/cosmetic_tutorial.md
           - Creating an NFT: tutorials/creating_an_nft.md
           - Damageable Object Basics: tutorials/damageable_object_basics.md
-          - Destructible Objects: tutorials/boss_tutorial.md
           - Creating Device Aware UI: tutorials/device_aware_ui.md
           - Environment Art: tutorials/environment_art.md
           - Game Events: tutorials/game_events.md
@@ -144,18 +144,18 @@ nav:
           - Model a Room: tutorials/scene_creation.md
           - Modeling Basics: tutorials/modeling_basics.md
           - Network Dormancy: tutorials/network_dormancy.md
-          - ✨ NFT Cosmetics: tutorials/nft_cosmetics.md
+          - NFT Cosmetics: tutorials/nft_cosmetics.md
           - NFT Inventory Loot: tutorials/nft_inventory_loot.md
-          - ✨ NFT Shareable Links: tutorials/nft_shareable_links.md
+          - NFT Shareable Links: tutorials/nft_shareable_links.md
           - NFT Slideshow: tutorials/slideshow.md
           - Perk Systems: tutorials/perks_tutorial.md
           - Perk Systems, Part 2: tutorials/perks_tutorial_part2.md
           - Persistent Storage: tutorials/persistent_storage_tutorial.md
-          - ✨ Pet Namer: tutorials/pet_namer.md
+          - Pet Namer: tutorials/pet_namer.md
           - Photo Booth: tutorials/photo_booth.md
           - Producers: tutorials/producers_tutorial.md
           - SpawnSharedAsset: tutorials/spawn_shared_asset_tutorial.md
-          - ✨ Text Entry Validation: tutorials/text_entry_validation.md
+          - Text Entry Validation: tutorials/text_entry_validation.md
           - Touch API Basics: tutorials/touch_basics.md
           - Uploading Images: tutorials/media_library.md
           - Visual Effects: tutorials/vfx_tutorial.md
