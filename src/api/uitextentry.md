@@ -19,6 +19,8 @@ A UIControl which provides an editable text input field. Inherits from [UIContro
 | `promptText` | `string` | Text to be displayed in the input box when `text` is empty. | Read-Write |
 | `isInteractable` | `boolean` | Returns whether the control can interact with the cursor (click, hover, etc). | Read-Write |
 | `fontSize` | `integer` | The font size of the control. | Read-Write |
+| `justification` | [`TextJustify`](enums.md#textjustify) | Determines the horizontal alignment of `text`. Possible values are: TextJustify.LEFT, TextJustify.RIGHT, and TextJustify.CENTER. | Read-Write |
+| `verticalJustification` | [`TextVerticalJustify`](enums.md#textverticaljustify) | Determines the vertical alignment of `text`. Possible values are: TextVerticalJustify.TOP, TextVerticalJustify.BOTTOM, TextVerticalJustify.CENTER and TextVerticalJustify.BASELINE. | Read-Write |
 | `isHittable` | `boolean` | When set to `true`, this control can receive input from the cursor and blocks input to controls behind it. When set to `false`, the cursor ignores this control and can interact with controls behind it. | Read-Write |
 
 ## Functions
