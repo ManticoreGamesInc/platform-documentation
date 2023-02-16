@@ -916,7 +916,7 @@ Example using:
 
 ### `ForceReplication`
 
-In this example, an object is replicated to clients every 10 settings by spawning a task which will toggle the replication state of the object. When replication is enabled, the object will be moved up for a certain time, and then replication will be turned off, which will send no more updates to clients.
+In this example, an object is replicated to clients every 10 seconds by spawning a task which will toggle the replication state of the object. When replication is enabled, the object will be moved up for a certain time, and then replication will be turned off, which will send no more updates to clients.
 
 The server script will listen for the event `ForceUpdate`, and force a replication if the object is not already replicating.
 
