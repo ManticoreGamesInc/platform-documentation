@@ -364,6 +364,15 @@ tags:
 | `TextJustify.CENTER` | `1` | Centered. |
 | `TextJustify.RIGHT` | `2` | Right-aligned. |
 
+## TextVerticalJustify
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `TextVerticalJustify.TOP` | `0` | Top-aligned. |
+| `TextVerticalJustify.BOTTOM` | `1` | Bottom-aligned. |
+| `TextVerticalJustify.CENTER` | `2` | Centered. |
+| `TextVerticalJustify.BASELINE` | `3` | Baseline-aligned. |
+
 ## UIPivot
 
 | Enum Name | Value | Description |

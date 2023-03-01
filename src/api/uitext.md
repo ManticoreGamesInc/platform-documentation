@@ -19,6 +19,7 @@ A UIControl which displays a basic text label. Inherits from [UIControl](uicontr
 | `fontSize` | `integer` | The font size of the UIText control. | Read-Write |
 | `outlineSize` | `integer` | The thickness of the outline around text in this control. A value of 0 means no outline. | Read-Write |
 | `justification` | [`TextJustify`](enums.md#textjustify) | Determines the alignment of `text`. Possible values are: TextJustify.LEFT, TextJustify.RIGHT, and TextJustify.CENTER. | Read-Write |
+| `verticalJustification` | [`TextVerticalJustify`](enums.md#textverticaljustify) | Determines the vertical alignment of `text`. Possible values are: TextVerticalJustify.TOP, TextVerticalJustify.BOTTOM, TextVerticalJustify.CENTER and TextVerticalJustify.BASELINE. | Read-Write |
 | `shouldWrapText` | `boolean` | Whether or not text should be wrapped within the bounds of this control. | Read-Write |
 | `shouldClipText` | `boolean` | Whether or not text should be clipped when exceeding the bounds of this control. | Read-Write |
 | `shouldScaleToFit` | `boolean` | Whether or not text should scale down to fit within the bounds of this control. | Read-Write |

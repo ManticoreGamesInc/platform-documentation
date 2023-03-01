@@ -49,6 +49,7 @@ Game is a collection of functions and events related to players in the game, rou
 | `Game.roundStartEvent` | [`Event`](event.md) | Fired when StartRound is called on game. | None |
 | `Game.roundEndEvent` | [`Event`](event.md) | Fired when EndRound is called on game. | None |
 | `Game.teamScoreChangedEvent` | [`Event`](event.md)<`integer` team> | Fired whenever any team's score changes. This is fired once per team who's score changes. | None |
+| `Game.postCameraUpdateEvent` | [`Event`](event.md) | Fired after the camera is updated. It allows Lua code to run after the camera is updated, so a scenario like UI elements positioning themselves to a world location works without a 1 frame lag. | None |
 
 ## Examples
 
