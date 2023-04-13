@@ -37,6 +37,7 @@ DamageableObject is a CoreObject which implements the [Damageable](damageable.md
 | ----- | ----------- | ----------- | ---- |
 | `damagedEvent` | [`Event`](event.md)<[`DamageableObject`](damageableobject.md) object, [`Damage`](damage.md) damage> | Fired when the object takes damage. | Server-Only |
 | `diedEvent` | [`Event`](event.md)<[`DamageableObject`](damageableobject.md) object, [`Damage`](damage.md) damage> | Fired when the object dies. | Server-Only |
+| `hitPointsChangedEvent` | [`Event`](event.md)<[`DamageableObject`](damageableobject.md) object, `number` previousHitPoints> | Fired when there's a change in hit points on the object. | Server-Only |
 
 ## Hooks
 
