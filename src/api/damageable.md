@@ -30,6 +30,7 @@ Damageable is an interface which defines properties, events, and functions for o
 | ----- | ----------- | ----------- | ---- |
 | `damagedEvent` | [`Event`](event.md)<`Damageable` damageable, [`Damage`](damage.md) damage> | Fired when the Damageable takes damage. | Server-Only |
 | `diedEvent` | [`Event`](event.md)<`Damageable` damageable, [`Damage`](damage.md) damage> | Fired when the Damageable dies. | Server-Only |
+| `hitPointsChangedEvent` | [`Event`](event.md)<`Damageable` damageable, `number` previousHitPoints> | Fired when there's a change in hit points on the Damageable. | Server-Only |
 
 ## Hooks
 

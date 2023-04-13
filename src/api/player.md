@@ -40,6 +40,8 @@ Player is an object representation of the state of a player connected to the gam
 | `shouldFlipOnMultiJump` | `boolean` | Set to `false` to disable flip animation when player performs double-jump, triple-jump, etc. Defaults to `true`, enabling flip animation. | Read-Write |
 | `jumpVelocity` | `number` | Vertical speed applied to Player when they jump. Default = 900. Speed is expressed in centimeters per second. | Read-Write |
 | `gravityScale` | `number` | Multiplier on gravity applied. Default = 1.9. | Read-Write |
+| `airControl` | `number` | When falling, amount of lateral movement control available to the player. 0 is no control. 1 is full control. Default = 0.5. | Read-Write |
+| `maxMountSpeed` | `number` | Maximum speed while the player is mounted. Default = 1280. | Read-Write |
 | `maxSwimSpeed` | `number` | Maximum speed while the player is swimming. Default = 420. | Read-Write |
 | `maxFlySpeed` | `number` | Maximum speed while the player is flying. Default = 600. | Read-Write |
 | `touchForceFactor` | `number` | Force applied to physics objects when contacted with a Player. Default = 1. | Read-Write |

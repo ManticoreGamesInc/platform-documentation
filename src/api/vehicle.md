@@ -66,6 +66,7 @@ Vehicle is a CoreObject representing a vehicle that can be occupied and driven b
 | `driverExitedEvent` | [`Event`](event.md)<[`Vehicle`](vehicle.md) vehicle, [`Player`](player.md) player> | Fired when a driver exits the vehicle. | None |
 | `damagedEvent` | [`Event`](event.md)<[`Vehicle`](vehicle.md) vehicle, [`Damage`](damage.md) damage> | Fired when the vehicle takes damage. | Server-Only |
 | `diedEvent` | [`Event`](event.md)<[`Vehicle`](vehicle.md) vehicle, [`Damage`](damage.md) damage> | Fired when the vehicle dies. | Server-Only |
+| `hitPointsChangedEvent` | [`Event`](event.md)<[`Vehicle`](vehicle.md) vehicle, `number` previousHitPoints> | Fired when there's a change in hit points on the vehicle. | Server-Only |
 
 ## Hooks
 
