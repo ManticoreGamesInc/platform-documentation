@@ -12,7 +12,7 @@ tags:
 
 In this tutorial, you are going to make an **Obby**, which is a platform and obstacle game. The game will have moving, rotating, and shrinking platforms as well as deadly spinning blades. The game will also have a rewards chest that can animate open and close. The reward inside is a flying pet that follows the player.
 
-* **Completion Time:** ~2 hours
+* **Completion Time:** ~2.5 hours
 * **Knowledge Level:** It's recommended to have completed the [Scripting Beginner](lua_basics_helloworld.md) and [Scripting Intermediate](lua_basics_lightbulb.md) tutorials.
 * **Skills you will learn:**
     * Using CoreObject API to move, rotate, and scale objects.
