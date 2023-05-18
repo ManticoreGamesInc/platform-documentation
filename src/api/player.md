@@ -77,6 +77,7 @@ Player is an object representation of the state of a player connected to the gam
 | `occupiedVehicle` | [`Vehicle`](vehicle.md) | Returns the `Vehicle` that the player currently occupies, or `nil` if the player is not occupying a vehicle. | Read-Only |
 | `isInParty` | `boolean` | Returns whether this player is in a party. This is known regardless of if the party is public or private. | Read-Only |
 | `isPartyLeader` | `boolean` | Returns whether this player is the leader of a public party. | Read-Only |
+| `ping` | `integer` | Returns the ping value in milliseconds for this player. | Read-Only |
 
 ## Functions
 
