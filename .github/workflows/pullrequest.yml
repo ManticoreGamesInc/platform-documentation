@@ -33,7 +33,7 @@ jobs:
         run: npm run lint:paths
 
       - name: Lint Markdown
-        uses: DavidAnson/markdownlint-cli2-action@v9
+        uses: DavidAnson/markdownlint-cli2-action@v10
         with:
           globs: "src/**/*.md"
 
@@ -45,7 +45,7 @@ jobs:
           max_timeout: 520
 
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@9.6.8
+        uses: treosh/lighthouse-ci-action@10.1.0
         env:
           LHCI_GITHUB_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         with:

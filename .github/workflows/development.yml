@@ -35,6 +35,6 @@ jobs:
         run: npm run lint:paths
 
       - name: Lint Markdown
-        uses: DavidAnson/markdownlint-cli2-action@v9
+        uses: DavidAnson/markdownlint-cli2-action@v10
         with:
           globs: "src/**/*.md"
