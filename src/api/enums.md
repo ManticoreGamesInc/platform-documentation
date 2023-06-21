@@ -356,6 +356,14 @@ tags:
 | `TaskStatus.CANCELED` | `6` | The task was canceled, either by a call to `Task.Cancel()` or because its script was destroyed. |
 | `TaskStatus.BLOCKED` | `7` | The task is waiting for an operation to complete before resuming execution. Examples include a call to `CoreObjectReference:WaitForObject()`, `CorePlatform.GetGameInfo()`, etc. |
 
+## TeamMode
+
+| Enum Name | Value | Description |
+| --------- | ----------- | ----------- |
+| `TeamMode.FREE_FOR_ALL` | `0` | Players are hostile to all other players. |
+| `TeamMode.TEAM_VERSUS` | `1` | Players are assigned to teams that are hostile to each other. |
+| `TeamMode.FRIENDLY` | `2` | Players are friendly to all other players. |
+
 ## TextJustify
 
 | Enum Name | Value | Description |
