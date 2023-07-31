@@ -8,7 +8,7 @@ mkdocs==1.4.3
 pygments==2.15.1
 pymdown-extensions==10.0.1
 mkdocs-static-i18n==0.56
-mkdocs-minify-plugin==0.6.4
+mkdocs-minify-plugin==0.7.0
 mkdocs-meta-descriptions-plugin==2.2.0
 mkdocs-glightbox
 ./mkdocs-material
