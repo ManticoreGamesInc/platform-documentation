@@ -22,7 +22,7 @@ The [Core Community Discord](https://discord.coregames.com) is a live social spa
 
 ## Help Center
 
-The [Help Center](https://support.coregames.com/hc/en-us) is the best place to go for any technical issues in Core.
+The [Help Center](https://support.coregames.com/) is the best place to go for any technical issues in Core.
 
 ## Bug Reports
 
