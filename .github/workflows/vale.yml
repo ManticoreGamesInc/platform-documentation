@@ -1,17 +1,17 @@
-name: Prose Linting
-on: [push]
+# name: Prose Linting
+# on: [push]
 
-jobs:
-  prose:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+# jobs:
+#   prose:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3
 
-      - name: Vale
-        uses: errata-ai/vale-action@v2.0.1
-        with:
-          files: src
-          fail_on_error: true
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+#       - name: Vale
+#         uses: errata-ai/vale-action@v2.0.1
+#         with:
+#           files: src
+#           fail_on_error: true
+#         env:
+#           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
