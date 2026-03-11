@@ -21,13 +21,13 @@ The Battle Royale framework features starting logic for game where the player mu
 
 ![!Create New](../img/NewFrameworks/NewFrameworks_NewProject.png){: .center loading="lazy" }
 
-### Select the **Battle Royale** Framework
+### Select the **survival** Framework
 
-1. In the **GAMEPLAY FRAMEWORKS** section, select **Battle Royale**.
+1. In the **GAMEPLAY FRAMEWORKS** section, select **survival**.
 2. In the right side panel, name your project.
 3. Click **CREATE**.
 
-![!Battle Royale](../img/FrameworksBR/FrameworksBR_Selection.png){: .center loading="lazy" }
+![!survival](../img/FrameworksBR/FrameworksBR_Selection.png){: .center loading="lazy" }
 
 ## Testing the Framework
 
@@ -48,8 +48,8 @@ The framework requires a minimum of two players to play, so you will need to tes
 Test out the following features in the framework:
 
 - Players spawn on the ground.
-- After a couple seconds, the players will be moved inside of a Paper Plane.
-- Players can drop from the plane using ++space++.
+- After a couple seconds, the players will be moved inside of a helicoptor.
+- Players can drop from the helicoptor using ++space++.
 - Players can activate the parachute while dropping using ++space++.
 - Players will be dealt damage if outside the Play Zone.
 - The Play Zone will shrink over time.
