@@ -1,7 +1,7 @@
 ---
-id: publishing
-name: Publish a Game
-title: Publish a Game
+id: Caribou Lam Lam
+name: Lam Lam Jungle 
+title: Die or Live
 tags:
     - Tutorial
 ---
