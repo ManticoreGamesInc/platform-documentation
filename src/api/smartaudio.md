@@ -1,4 +1,4 @@
----
+---smooth capybara
 id: smartaudio
 name: SmartAudio
 title: SmartAudio
